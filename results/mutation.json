@@ -1,0 +1,263 @@
+{
+ "baseline": {
+  "id": "BASE",
+  "file": "",
+  "desc": "unmodified copy - must PASS",
+  "status": "survived",
+  "detail": "109 passed, 1 deselected in 69.71s (0:01:09)",
+  "seconds": 86.8
+ },
+ "equivalent": {
+  "id": "M00",
+  "file": "vrptw/checker.py",
+  "desc": "equivalent mutant (comment only) - must SURVIVE",
+  "status": "survived",
+  "detail": "109 passed, 1 deselected in 79.94s (0:01:19)",
+  "seconds": 89.8
+ },
+ "mutants": [
+  {
+   "id": "M01",
+   "file": "vrptw/checker.py",
+   "desc": "checker: time-window check off by one time unit",
+   "status": "killed",
+   "detail": "1 failed, 27 passed, 1 deselected in 36.45s",
+   "seconds": 52.7
+  },
+  {
+   "id": "M02",
+   "file": "vrptw/checker.py",
+   "desc": "checker: capacity check 10% too loose",
+   "status": "killed",
+   "detail": "1 failed, 16 passed, 1 deselected in 26.32s",
+   "seconds": 41.5
+  },
+  {
+   "id": "M03",
+   "file": "vrptw/checker.py",
+   "desc": "checker: wrong sign when payload is dropped (energy)",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 9.80s",
+   "seconds": 26.0
+  },
+  {
+   "id": "M04",
+   "file": "vrptw/checker.py",
+   "desc": "checker: battery check ignores the reserve margin",
+   "status": "killed",
+   "detail": "1 failed, 14 passed, 1 deselected in 22.27s",
+   "seconds": 36.6
+  },
+  {
+   "id": "M05",
+   "file": "vrptw/checker.py",
+   "desc": "checker: duplicate visits not detected",
+   "status": "killed",
+   "detail": "1 failed, 29 passed, 1 deselected in 34.77s",
+   "seconds": 58.9
+  },
+  {
+   "id": "M06",
+   "file": "vrptw/checker.py",
+   "desc": "checker: min-duration misses latest-departure candidates",
+   "status": "killed",
+   "detail": "1 failed, 35 passed, 1 deselected in 36.81s",
+   "seconds": 60.1
+  },
+  {
+   "id": "M07",
+   "file": "vrptw/routes.py",
+   "desc": "search: insertion time-window check off by one",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 4.90s",
+   "seconds": 23.8
+  },
+  {
+   "id": "M08",
+   "file": "vrptw/routes.py",
+   "desc": "search: successor latest-start (push-forward) check too loose",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 6.01s",
+   "seconds": 21.0
+  },
+  {
+   "id": "M09",
+   "file": "vrptw/routes.py",
+   "desc": "search: insertion ignores the inserted customer's demand",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 5.76s",
+   "seconds": 29.0
+  },
+  {
+   "id": "M10",
+   "file": "vrptw/routes.py",
+   "desc": "search: wrong sign of payload energy on the new arc",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 6.16s",
+   "seconds": 24.1
+  },
+  {
+   "id": "M11",
+   "file": "vrptw/routes.py",
+   "desc": "search: forgets extra payload carried on earlier arcs",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 4.70s",
+   "seconds": 21.4
+  },
+  {
+   "id": "M12",
+   "file": "vrptw/routes.py",
+   "desc": "search: latest-start backward pass forgets service time",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 7.57s",
+   "seconds": 20.7
+  },
+  {
+   "id": "M13",
+   "file": "vrptw/routes.py",
+   "desc": "search: forward pass forgets waiting for the window to open",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 7.18s",
+   "seconds": 19.8
+  },
+  {
+   "id": "M14",
+   "file": "vrptw/routes.py",
+   "desc": "search: removal savings ignore payload on earlier arcs",
+   "status": "killed",
+   "detail": "1 failed, 93 passed, 1 deselected in 85.98s (0:01:25)",
+   "seconds": 102.3
+  },
+  {
+   "id": "M15",
+   "file": "vrptw/routes.py",
+   "desc": "search: route min-duration formula wrong",
+   "status": "killed",
+   "detail": "1 failed, 37 passed, 1 deselected in 30.03s",
+   "seconds": 49.8
+  },
+  {
+   "id": "M16",
+   "file": "vrptw/routes.py",
+   "desc": "search: insertion duration check ignores downstream waiting",
+   "status": "killed",
+   "detail": "1 failed, 38 passed, 1 deselected in 28.64s",
+   "seconds": 51.2
+  },
+  {
+   "id": "M17",
+   "file": "vrptw/alns.py",
+   "desc": "ALNS repair: fleet limit not re-checked after opening a route",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 5.30s",
+   "seconds": 24.9
+  },
+  {
+   "id": "M18",
+   "file": "vrptw/alns.py",
+   "desc": "ALNS repair: stale insertion costs after a route changes",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 4.46s",
+   "seconds": 19.3
+  },
+  {
+   "id": "M19",
+   "file": "vrptw/alns.py",
+   "desc": "ALNS destroy: keeps emptied routes",
+   "status": "killed",
+   "detail": "1 failed, 1 deselected in 3.94s",
+   "seconds": 19.7
+  },
+  {
+   "id": "M20",
+   "file": "vrptw/alns.py",
+   "desc": "ALNS: best solution prefers MORE unassigned customers",
+   "status": "killed",
+   "detail": "1 failed, 7 passed, 1 deselected in 11.02s",
+   "seconds": 26.4
+  },
+  {
+   "id": "M21",
+   "file": "vrptw/alns.py",
+   "desc": "ALNS regret repair: inverted regret",
+   "status": "killed",
+   "detail": "1 failed, 24 passed, 1 deselected in 30.16s",
+   "seconds": 46.1
+  },
+  {
+   "id": "M22",
+   "file": "vrptw/alns.py",
+   "desc": "ALNS stage A: route minimisation without the fleet limit",
+   "status": "killed",
+   "detail": "1 failed, 7 passed, 1 deselected in 9.15s",
+   "seconds": 25.5
+  },
+  {
+   "id": "M23",
+   "file": "vrptw/mip.py",
+   "desc": "MIP: time propagation ignores service time",
+   "status": "killed",
+   "detail": "1 failed, 59 passed, 1 deselected in 77.24s (0:01:17)",
+   "seconds": 92.1
+  },
+  {
+   "id": "M24",
+   "file": "vrptw/mip.py",
+   "desc": "MIP: payload (MTZ) constraint drops q_i",
+   "status": "killed",
+   "detail": "1 failed, 47 passed, 1 deselected in 31.09s",
+   "seconds": 52.0
+  },
+  {
+   "id": "M25",
+   "file": "vrptw/mip.py",
+   "desc": "MIP: wrong sign of payload energy",
+   "status": "killed",
+   "detail": "1 failed, 47 passed, 1 deselected in 37.17s",
+   "seconds": 56.0
+  },
+  {
+   "id": "M26",
+   "file": "vrptw/mip.py",
+   "desc": "MIP: forgets the take-off/landing energy",
+   "status": "killed",
+   "detail": "1 failed, 47 passed, 1 deselected in 45.18s",
+   "seconds": 72.4
+  },
+  {
+   "id": "M27",
+   "file": "vrptw/sim.py",
+   "desc": "simulator: wind does not affect energy",
+   "status": "killed",
+   "detail": "1 failed, 103 passed, 1 deselected in 93.97s (0:01:33)",
+   "seconds": 122.8
+  },
+  {
+   "id": "M28",
+   "file": "vrptw/sim.py",
+   "desc": "simulator: lateness off by one minute",
+   "status": "killed",
+   "detail": "1 failed, 108 passed, 1 deselected in 93.21s (0:01:33)",
+   "seconds": 117.3
+  },
+  {
+   "id": "M29",
+   "file": "vrptw/drone.py",
+   "desc": "trip chaining: forgets the battery-swap time",
+   "status": "killed",
+   "detail": "1 failed, 101 passed, 1 deselected in 84.28s (0:01:24)",
+   "seconds": 100.8
+  },
+  {
+   "id": "M30",
+   "file": "vrptw/drone.py",
+   "desc": "energy model: drops avionics power",
+   "status": "killed",
+   "detail": "1 failed, 77 passed, 1 deselected in 81.54s (0:01:21)",
+   "seconds": 98.7
+  }
+ ],
+ "killed": 30,
+ "total": 30,
+ "history": "First run on 2026-09-27: 28/30 killed. Survivors: M21 (inverted regret - no test looked at *which* customer regret inserts first) and M28 (lateness off by one - the simulator tests only covered zero lateness). Added `test_regret_repair_beats_greedy_on_constructed_case` and `test_lateness_is_measured_exactly`, then re-ran everything; the table below is that re-run."
+}

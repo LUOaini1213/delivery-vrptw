@@ -1,0 +1,21 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: data hashes
+        run: python scripts/fetch_data.py --verify
+      - name: unit tests
+        run: python -m pytest -q
+      - name: README tables match results/*.json
+        run: python scripts/check_readme.py --check
+      - name: smoke run
+        run: python scripts/smoke.py

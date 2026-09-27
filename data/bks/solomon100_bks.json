@@ -1,0 +1,289 @@
+{
+ "source": "https://www.sintef.no/projectweb/top/vrptw/solomon-benchmark/100-customers/",
+ "retrieved": "2026-09-27",
+ "objective": "hierarchical: 1) number of vehicles, 2) total distance",
+ "convention": "Euclidean distance and travel time in double precision; total distance rounded to two decimals (as stated on the SINTEF page)",
+ "reference_codes_note": "Reference codes (RT, HG, MBD, ...) are the SINTEF page's citation keys; full citations are listed on that page.",
+ "instances": {
+  "C101": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C102": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C103": {
+   "vehicles": 10,
+   "distance": 828.06,
+   "ref": "RT"
+  },
+  "C104": {
+   "vehicles": 10,
+   "distance": 824.78,
+   "ref": "RT"
+  },
+  "C105": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C106": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C107": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C108": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C109": {
+   "vehicles": 10,
+   "distance": 828.94,
+   "ref": "RT"
+  },
+  "C201": {
+   "vehicles": 3,
+   "distance": 591.56,
+   "ref": "RT"
+  },
+  "C202": {
+   "vehicles": 3,
+   "distance": 591.56,
+   "ref": "RT"
+  },
+  "C203": {
+   "vehicles": 3,
+   "distance": 591.17,
+   "ref": "RT"
+  },
+  "C204": {
+   "vehicles": 3,
+   "distance": 590.6,
+   "ref": "RT"
+  },
+  "C205": {
+   "vehicles": 3,
+   "distance": 588.88,
+   "ref": "RT"
+  },
+  "C206": {
+   "vehicles": 3,
+   "distance": 588.49,
+   "ref": "RT"
+  },
+  "C207": {
+   "vehicles": 3,
+   "distance": 588.29,
+   "ref": "RT"
+  },
+  "C208": {
+   "vehicles": 3,
+   "distance": 588.32,
+   "ref": "RT"
+  },
+  "R101": {
+   "vehicles": 19,
+   "distance": 1650.8,
+   "ref": "H"
+  },
+  "R102": {
+   "vehicles": 17,
+   "distance": 1486.12,
+   "ref": "RT"
+  },
+  "R103": {
+   "vehicles": 13,
+   "distance": 1292.68,
+   "ref": "LLH"
+  },
+  "R104": {
+   "vehicles": 9,
+   "distance": 1007.31,
+   "ref": "MBD"
+  },
+  "R105": {
+   "vehicles": 14,
+   "distance": 1377.11,
+   "ref": "RT"
+  },
+  "R106": {
+   "vehicles": 12,
+   "distance": 1252.03,
+   "ref": "MBD"
+  },
+  "R107": {
+   "vehicles": 10,
+   "distance": 1104.66,
+   "ref": "S97"
+  },
+  "R108": {
+   "vehicles": 9,
+   "distance": 960.88,
+   "ref": "BBB"
+  },
+  "R109": {
+   "vehicles": 11,
+   "distance": 1194.73,
+   "ref": "HG"
+  },
+  "R110": {
+   "vehicles": 10,
+   "distance": 1118.84,
+   "ref": "MBD"
+  },
+  "R111": {
+   "vehicles": 10,
+   "distance": 1096.73,
+   "ref": "RGP"
+  },
+  "R112": {
+   "vehicles": 9,
+   "distance": 982.14,
+   "ref": "GTA"
+  },
+  "R201": {
+   "vehicles": 4,
+   "distance": 1252.37,
+   "ref": "HG"
+  },
+  "R202": {
+   "vehicles": 3,
+   "distance": 1191.7,
+   "ref": "RGP"
+  },
+  "R203": {
+   "vehicles": 3,
+   "distance": 939.5,
+   "ref": "WL"
+  },
+  "R204": {
+   "vehicles": 2,
+   "distance": 825.52,
+   "ref": "BVH"
+  },
+  "R205": {
+   "vehicles": 3,
+   "distance": 994.43,
+   "ref": "RGP"
+  },
+  "R206": {
+   "vehicles": 3,
+   "distance": 906.14,
+   "ref": "SSSD"
+  },
+  "R207": {
+   "vehicles": 2,
+   "distance": 890.61,
+   "ref": "RP"
+  },
+  "R208": {
+   "vehicles": 2,
+   "distance": 726.82,
+   "ref": "MBD"
+  },
+  "R209": {
+   "vehicles": 3,
+   "distance": 909.16,
+   "ref": "H"
+  },
+  "R210": {
+   "vehicles": 3,
+   "distance": 939.37,
+   "ref": "MBD"
+  },
+  "R211": {
+   "vehicles": 2,
+   "distance": 885.71,
+   "ref": "WL"
+  },
+  "RC101": {
+   "vehicles": 14,
+   "distance": 1696.95,
+   "ref": "TBGGP"
+  },
+  "RC102": {
+   "vehicles": 12,
+   "distance": 1554.75,
+   "ref": "TBGGP"
+  },
+  "RC103": {
+   "vehicles": 11,
+   "distance": 1261.67,
+   "ref": "S98"
+  },
+  "RC104": {
+   "vehicles": 10,
+   "distance": 1135.48,
+   "ref": "CLM"
+  },
+  "RC105": {
+   "vehicles": 13,
+   "distance": 1629.44,
+   "ref": "BBB"
+  },
+  "RC106": {
+   "vehicles": 11,
+   "distance": 1424.73,
+   "ref": "BBB"
+  },
+  "RC107": {
+   "vehicles": 11,
+   "distance": 1230.48,
+   "ref": "S97"
+  },
+  "RC108": {
+   "vehicles": 10,
+   "distance": 1139.82,
+   "ref": "TBGGP"
+  },
+  "RC201": {
+   "vehicles": 4,
+   "distance": 1406.94,
+   "ref": "MBD"
+  },
+  "RC202": {
+   "vehicles": 3,
+   "distance": 1365.65,
+   "ref": "GCC"
+  },
+  "RC203": {
+   "vehicles": 3,
+   "distance": 1049.62,
+   "ref": "CC"
+  },
+  "RC204": {
+   "vehicles": 3,
+   "distance": 798.46,
+   "ref": "MBD"
+  },
+  "RC205": {
+   "vehicles": 4,
+   "distance": 1297.65,
+   "ref": "MBD"
+  },
+  "RC206": {
+   "vehicles": 3,
+   "distance": 1146.32,
+   "ref": "H"
+  },
+  "RC207": {
+   "vehicles": 3,
+   "distance": 1061.14,
+   "ref": "BVH"
+  },
+  "RC208": {
+   "vehicles": 3,
+   "distance": 828.14,
+   "ref": "IKMUY"
+  }
+ }
+}

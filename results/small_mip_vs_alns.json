@@ -1,0 +1,6639 @@
+{
+ "experiment": "small_mip_vs_alns",
+ "objective": "total distance",
+ "mip_time_limit": {
+  "10": 60.0,
+  "25": 300.0
+ },
+ "alns_iters": {
+  "10": 1000,
+  "25": 2000
+ },
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "workers": 4,
+ "wall_seconds": 3331.0,
+ "machine": {
+  "os": "Windows-10-10.0.26200-SP0",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-11370H @ 3.30GHz",
+  "logical_cpus": 8,
+  "python": "3.11.5",
+  "numpy": "1.24.3",
+  "scipy": "1.11.1"
+ },
+ "runs": [
+  {
+   "instance": "C101",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.02,
+    "n_vars": 85,
+    "n_cons": 77,
+    "time_limit": 60.0,
+    "objective": 58.325953,
+    "vehicles": 1,
+    "bound": 58.325953,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 58.325953,
+    "vehicles": 1,
+    "seconds": 0.17
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 9.4,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 3.69,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 4.09,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 3.58,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 2.89,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C102",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.29,
+    "n_vars": 120,
+    "n_cons": 181,
+    "time_limit": 60.0,
+    "objective": 57.249963,
+    "vehicles": 1,
+    "bound": 57.249963,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 57.249963,
+    "vehicles": 1,
+    "seconds": 0.08
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 4.53,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 5.52,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 7.25,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 8.88,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 8.12,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C103",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.38,
+    "n_vars": 120,
+    "n_cons": 181,
+    "time_limit": 60.0,
+    "objective": 57.249963,
+    "vehicles": 1,
+    "bound": 57.249963,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 57.249963,
+    "vehicles": 1,
+    "seconds": 0.03
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 4.99,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 7.31,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 9.44,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 5.69,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 57.249963,
+     "vehicles": 1,
+     "seconds": 2.25,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C104",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 3.64,
+    "n_vars": 127,
+    "n_cons": 201,
+    "time_limit": 60.0,
+    "objective": 56.407466,
+    "vehicles": 1,
+    "bound": 56.407466,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 56.407466,
+    "vehicles": 1,
+    "seconds": 0.64
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 56.407466,
+     "vehicles": 1,
+     "seconds": 11.79,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 56.407466,
+     "vehicles": 1,
+     "seconds": 5.27,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 56.407466,
+     "vehicles": 1,
+     "seconds": 7.58,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 56.407466,
+     "vehicles": 1,
+     "seconds": 4.16,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 56.407466,
+     "vehicles": 1,
+     "seconds": 5.72,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C105",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.04,
+    "n_vars": 86,
+    "n_cons": 86,
+    "time_limit": 60.0,
+    "objective": 58.325953,
+    "vehicles": 1,
+    "bound": 58.325953,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 58.325953,
+    "vehicles": 1,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 5.58,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 6.38,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 8.62,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 3.73,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 7.69,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C106",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.09,
+    "n_vars": 85,
+    "n_cons": 82,
+    "time_limit": 60.0,
+    "objective": 58.325953,
+    "vehicles": 1,
+    "bound": 58.325953,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 58.325953,
+    "vehicles": 1,
+    "seconds": 0.47
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 5.84,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 3.03,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 5.44,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 8.44,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 7.28,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C107",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.01,
+    "n_vars": 86,
+    "n_cons": 88,
+    "time_limit": 60.0,
+    "objective": 58.325953,
+    "vehicles": 1,
+    "bound": 58.325953,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 58.325953,
+    "vehicles": 1,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 3.8,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 5.43,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 5.88,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 2.72,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 58.325953,
+     "vehicles": 1,
+     "seconds": 4.33,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C108",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.3,
+    "n_vars": 95,
+    "n_cons": 114,
+    "time_limit": 60.0,
+    "objective": 57.497526,
+    "vehicles": 1,
+    "bound": 57.497526,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 58.325953,
+    "vehicles": 1,
+    "seconds": 0.21
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 6.15,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 5.17,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 3.61,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 3.67,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 4.57,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C109",
+   "family": "C1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.47,
+    "n_vars": 103,
+    "n_cons": 134,
+    "time_limit": 60.0,
+    "objective": 57.497526,
+    "vehicles": 1,
+    "bound": 57.497526,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 58.325953,
+    "vehicles": 1,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 5.29,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 3.97,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 5.1,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 4.48,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 57.497526,
+     "vehicles": 1,
+     "seconds": 3.87,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C201",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.05,
+    "n_vars": 85,
+    "n_cons": 77,
+    "time_limit": 60.0,
+    "objective": 152.285664,
+    "vehicles": 2,
+    "bound": 152.285664,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 194.664815,
+    "vehicles": 1,
+    "seconds": 0.18
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 152.285664,
+     "vehicles": 2,
+     "seconds": 9.21,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 152.285664,
+     "vehicles": 2,
+     "seconds": 11.6,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 152.285664,
+     "vehicles": 2,
+     "seconds": 9.52,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 152.285664,
+     "vehicles": 2,
+     "seconds": 3.43,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 152.285664,
+     "vehicles": 2,
+     "seconds": 3.49,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C202",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 6.68,
+    "n_vars": 120,
+    "n_cons": 180,
+    "time_limit": 60.0,
+    "objective": 144.987243,
+    "vehicles": 1,
+    "bound": 144.987243,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 148.03947,
+    "vehicles": 1,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 7.89,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 4.1,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 6.18,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 3.96,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 8.43,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C203",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 6.47,
+    "n_vars": 120,
+    "n_cons": 180,
+    "time_limit": 60.0,
+    "objective": 144.987243,
+    "vehicles": 1,
+    "bound": 144.987243,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 148.03947,
+    "vehicles": 1,
+    "seconds": 0.16
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 3.04,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 3.45,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 2.01,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 2.96,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 144.987243,
+     "vehicles": 1,
+     "seconds": 15.11,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C204",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 5.19,
+    "n_vars": 127,
+    "n_cons": 201,
+    "time_limit": 60.0,
+    "objective": 133.133975,
+    "vehicles": 1,
+    "bound": 133.133975,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 140.333811,
+    "vehicles": 1,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 133.133975,
+     "vehicles": 1,
+     "seconds": 2.76,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 133.133975,
+     "vehicles": 1,
+     "seconds": 12.5,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 133.133975,
+     "vehicles": 1,
+     "seconds": 16.01,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 133.133975,
+     "vehicles": 1,
+     "seconds": 9.08,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 133.133975,
+     "vehicles": 1,
+     "seconds": 16.4,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C205",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.11,
+    "n_vars": 92,
+    "n_cons": 95,
+    "time_limit": 60.0,
+    "objective": 152.087438,
+    "vehicles": 2,
+    "bound": 152.087438,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 192.994925,
+    "vehicles": 1,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 2.21,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 3.87,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 1.64,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 10.13,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 12.0,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C206",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.13,
+    "n_vars": 96,
+    "n_cons": 103,
+    "time_limit": 60.0,
+    "objective": 152.087438,
+    "vehicles": 2,
+    "bound": 152.087438,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 170.684442,
+    "vehicles": 1,
+    "seconds": 0.18
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 7.8,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 10.05,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 6.08,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 6.97,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 14.04,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C207",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.89,
+    "n_vars": 93,
+    "n_cons": 98,
+    "time_limit": 60.0,
+    "objective": 152.087438,
+    "vehicles": 2,
+    "bound": 152.087438,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 170.684442,
+    "vehicles": 1,
+    "seconds": 0.58
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 8.67,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 9.46,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 14.9,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 10.65,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 152.087438,
+     "vehicles": 2,
+     "seconds": 7.94,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C208",
+   "family": "C2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 3.54,
+    "n_vars": 97,
+    "n_cons": 109,
+    "time_limit": 60.0,
+    "objective": 146.36958,
+    "vehicles": 1,
+    "bound": 146.36958,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 146.36958,
+    "vehicles": 1,
+    "seconds": 0.42
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 146.36958,
+     "vehicles": 1,
+     "seconds": 12.44,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 146.36958,
+     "vehicles": 1,
+     "seconds": 5.63,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 146.36958,
+     "vehicles": 1,
+     "seconds": 4.77,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 146.36958,
+     "vehicles": 1,
+     "seconds": 4.91,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 146.36958,
+     "vehicles": 1,
+     "seconds": 5.05,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R101",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.05,
+    "n_vars": 70,
+    "n_cons": 63,
+    "time_limit": 60.0,
+    "objective": 269.533141,
+    "vehicles": 4,
+    "bound": 269.533141,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 311.508697,
+    "vehicles": 4,
+    "seconds": 0.12
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 269.533141,
+     "vehicles": 4,
+     "seconds": 5.6,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 269.533141,
+     "vehicles": 4,
+     "seconds": 2.97,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 269.533141,
+     "vehicles": 4,
+     "seconds": 3.36,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 269.533141,
+     "vehicles": 4,
+     "seconds": 3.05,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 269.533141,
+     "vehicles": 4,
+     "seconds": 4.49,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R102",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 3.51,
+    "n_vars": 113,
+    "n_cons": 174,
+    "time_limit": 60.0,
+    "objective": 229.768533,
+    "vehicles": 3,
+    "bound": 229.768533,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 262.535311,
+    "vehicles": 3,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.35,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.66,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.86,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.64,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.55,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R103",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.57,
+    "n_vars": 113,
+    "n_cons": 174,
+    "time_limit": 60.0,
+    "objective": 229.768533,
+    "vehicles": 3,
+    "bound": 229.768533,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 262.535311,
+    "vehicles": 3,
+    "seconds": 0.03
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 4.61,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.56,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 2.63,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.01,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 229.768533,
+     "vehicles": 3,
+     "seconds": 3.25,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R104",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 3.51,
+    "n_vars": 123,
+    "n_cons": 196,
+    "time_limit": 60.0,
+    "objective": 198.212305,
+    "vehicles": 2,
+    "bound": 198.212305,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 217.826874,
+    "vehicles": 2,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 3.49,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 2.23,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 3.01,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 3.35,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 2.67,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R105",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.01,
+    "n_vars": 78,
+    "n_cons": 90,
+    "time_limit": 60.0,
+    "objective": 253.071497,
+    "vehicles": 3,
+    "bound": 253.071497,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 263.258619,
+    "vehicles": 3,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 253.071497,
+     "vehicles": 3,
+     "seconds": 2.08,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 253.071497,
+     "vehicles": 3,
+     "seconds": 4.01,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 253.071497,
+     "vehicles": 3,
+     "seconds": 2.76,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 253.071497,
+     "vehicles": 3,
+     "seconds": 3.56,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 253.071497,
+     "vehicles": 3,
+     "seconds": 2.54,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R106",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.39,
+    "n_vars": 117,
+    "n_cons": 182,
+    "time_limit": 60.0,
+    "objective": 220.008173,
+    "vehicles": 3,
+    "bound": 220.008173,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 241.109726,
+    "vehicles": 2,
+    "seconds": 0.03
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 3.86,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 2.85,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 1.82,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 3.41,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 3.85,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R107",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.41,
+    "n_vars": 117,
+    "n_cons": 182,
+    "time_limit": 60.0,
+    "objective": 220.008173,
+    "vehicles": 3,
+    "bound": 220.008173,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 241.109726,
+    "vehicles": 2,
+    "seconds": 0.04
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 3.91,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 4.06,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 3.2,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 5.92,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 2.71,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R108",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 3.76,
+    "n_vars": 125,
+    "n_cons": 200,
+    "time_limit": 60.0,
+    "objective": 198.212305,
+    "vehicles": 2,
+    "bound": 198.212305,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 217.826874,
+    "vehicles": 2,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 7.53,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 4.34,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 4.86,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 4.27,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 5.26,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R109",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.03,
+    "n_vars": 92,
+    "n_cons": 126,
+    "time_limit": 60.0,
+    "objective": 232.294997,
+    "vehicles": 3,
+    "bound": 232.294997,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 253.918963,
+    "vehicles": 2,
+    "seconds": 0.06
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 232.294997,
+     "vehicles": 3,
+     "seconds": 2.95,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 232.294997,
+     "vehicles": 3,
+     "seconds": 4.75,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 232.294997,
+     "vehicles": 3,
+     "seconds": 5.01,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 232.294997,
+     "vehicles": 3,
+     "seconds": 2.26,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 232.294997,
+     "vehicles": 3,
+     "seconds": 4.69,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R110",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.11,
+    "n_vars": 108,
+    "n_cons": 160,
+    "time_limit": 60.0,
+    "objective": 213.746549,
+    "vehicles": 2,
+    "bound": 213.746549,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 231.920691,
+    "vehicles": 2,
+    "seconds": 0.06
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 213.746549,
+     "vehicles": 2,
+     "seconds": 2.56,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 213.746549,
+     "vehicles": 2,
+     "seconds": 5.25,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 213.746549,
+     "vehicles": 2,
+     "seconds": 3.95,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 213.746549,
+     "vehicles": 2,
+     "seconds": 4.85,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 213.746549,
+     "vehicles": 2,
+     "seconds": 2.83,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R111",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 5.88,
+    "n_vars": 118,
+    "n_cons": 182,
+    "time_limit": 60.0,
+    "objective": 220.008173,
+    "vehicles": 3,
+    "bound": 220.008173,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 254.952726,
+    "vehicles": 2,
+    "seconds": 0.06
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 4.29,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 4.77,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 2.86,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 4.77,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 220.008173,
+     "vehicles": 3,
+     "seconds": 4.38,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R112",
+   "family": "R1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 3.28,
+    "n_vars": 130,
+    "n_cons": 204,
+    "time_limit": 60.0,
+    "objective": 198.212305,
+    "vehicles": 2,
+    "bound": 198.212305,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 202.540131,
+    "vehicles": 2,
+    "seconds": 0.06
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 7.13,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 2.82,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 2.46,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 6.51,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 2.28,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R201",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.1,
+    "n_vars": 90,
+    "n_cons": 90,
+    "time_limit": 60.0,
+    "objective": 249.201184,
+    "vehicles": 2,
+    "bound": 249.201184,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 253.865238,
+    "vehicles": 1,
+    "seconds": 0.21
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 249.201184,
+     "vehicles": 2,
+     "seconds": 5.17,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 249.201184,
+     "vehicles": 2,
+     "seconds": 7.56,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 249.201184,
+     "vehicles": 2,
+     "seconds": 7.23,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 249.201184,
+     "vehicles": 2,
+     "seconds": 9.53,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 249.201184,
+     "vehicles": 2,
+     "seconds": 11.28,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R202",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.1,
+    "n_vars": 123,
+    "n_cons": 188,
+    "time_limit": 60.0,
+    "objective": 198.212305,
+    "vehicles": 2,
+    "bound": 198.212305,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 226.292568,
+    "vehicles": 1,
+    "seconds": 0.03
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 7.88,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 212.12169,
+     "vehicles": 2,
+     "seconds": 5.77,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 4.36,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 212.12169,
+     "vehicles": 2,
+     "seconds": 7.5,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 4.99,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R203",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.42,
+    "n_vars": 123,
+    "n_cons": 188,
+    "time_limit": 60.0,
+    "objective": 198.212305,
+    "vehicles": 2,
+    "bound": 198.212305,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 226.292568,
+    "vehicles": 1,
+    "seconds": 0.06
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 5.76,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 212.12169,
+     "vehicles": 2,
+     "seconds": 10.45,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 7.72,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 212.12169,
+     "vehicles": 2,
+     "seconds": 7.99,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 4.28,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R204",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.5,
+    "n_vars": 128,
+    "n_cons": 204,
+    "time_limit": 60.0,
+    "objective": 182.045881,
+    "vehicles": 1,
+    "bound": 182.045881,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 200.487627,
+    "vehicles": 1,
+    "seconds": 0.28
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 182.045881,
+     "vehicles": 1,
+     "seconds": 7.0,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 182.045881,
+     "vehicles": 1,
+     "seconds": 7.03,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 182.045881,
+     "vehicles": 1,
+     "seconds": 4.52,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 182.045881,
+     "vehicles": 1,
+     "seconds": 3.73,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 182.045881,
+     "vehicles": 1,
+     "seconds": 7.87,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R205",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.31,
+    "n_vars": 105,
+    "n_cons": 137,
+    "time_limit": 60.0,
+    "objective": 209.81455,
+    "vehicles": 1,
+    "bound": 209.81455,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 209.81455,
+    "vehicles": 1,
+    "seconds": 0.47
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 209.81455,
+     "vehicles": 1,
+     "seconds": 10.2,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 209.81455,
+     "vehicles": 1,
+     "seconds": 7.43,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 209.81455,
+     "vehicles": 1,
+     "seconds": 8.15,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 209.81455,
+     "vehicles": 1,
+     "seconds": 3.01,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 209.81455,
+     "vehicles": 1,
+     "seconds": 2.94,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R206",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.06,
+    "n_vars": 127,
+    "n_cons": 201,
+    "time_limit": 60.0,
+    "objective": 173.042011,
+    "vehicles": 1,
+    "bound": 173.042011,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 181.693813,
+    "vehicles": 1,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 5.2,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 5.86,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.01,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 5.88,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.4,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R207",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.1,
+    "n_vars": 127,
+    "n_cons": 201,
+    "time_limit": 60.0,
+    "objective": 173.042011,
+    "vehicles": 1,
+    "bound": 173.042011,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 181.693813,
+    "vehicles": 1,
+    "seconds": 0.1
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.31,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 4.83,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 4.78,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.74,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 4.71,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R208",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.08,
+    "n_vars": 128,
+    "n_cons": 205,
+    "time_limit": 60.0,
+    "objective": 173.042011,
+    "vehicles": 1,
+    "bound": 173.042011,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 181.693813,
+    "vehicles": 1,
+    "seconds": 0.1
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.24,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 6.22,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.45,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 4.36,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 173.042011,
+     "vehicles": 1,
+     "seconds": 3.98,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R209",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.48,
+    "n_vars": 114,
+    "n_cons": 161,
+    "time_limit": 60.0,
+    "objective": 194.472934,
+    "vehicles": 2,
+    "bound": 194.472934,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 242.933284,
+    "vehicles": 1,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 196.441003,
+     "vehicles": 1,
+     "seconds": 4.69,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 196.441003,
+     "vehicles": 1,
+     "seconds": 4.08,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 196.441003,
+     "vehicles": 1,
+     "seconds": 4.05,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 196.441003,
+     "vehicles": 1,
+     "seconds": 4.99,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 196.441003,
+     "vehicles": 1,
+     "seconds": 2.67,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R210",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 2.04,
+    "n_vars": 123,
+    "n_cons": 187,
+    "time_limit": 60.0,
+    "objective": 198.212305,
+    "vehicles": 2,
+    "bound": 198.212305,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 221.000433,
+    "vehicles": 1,
+    "seconds": 0.23
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 202.056151,
+     "vehicles": 1,
+     "seconds": 3.31,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 202.056151,
+     "vehicles": 1,
+     "seconds": 4.05,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 202.056151,
+     "vehicles": 1,
+     "seconds": 3.8,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 198.212305,
+     "vehicles": 2,
+     "seconds": 5.57,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 202.056151,
+     "vehicles": 1,
+     "seconds": 7.02,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "R211",
+   "family": "R2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.59,
+    "n_vars": 130,
+    "n_cons": 204,
+    "time_limit": 60.0,
+    "objective": 183.039142,
+    "vehicles": 1,
+    "bound": 183.039142,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 212.017717,
+    "vehicles": 1,
+    "seconds": 0.03
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 183.039142,
+     "vehicles": 1,
+     "seconds": 2.58,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 183.039142,
+     "vehicles": 1,
+     "seconds": 2.84,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 183.039142,
+     "vehicles": 1,
+     "seconds": 5.19,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 183.039142,
+     "vehicles": 1,
+     "seconds": 2.81,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 183.039142,
+     "vehicles": 1,
+     "seconds": 3.84,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC101",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.06,
+    "n_vars": 84,
+    "n_cons": 97,
+    "time_limit": 60.0,
+    "objective": 185.907877,
+    "vehicles": 2,
+    "bound": 185.907877,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 191.232982,
+    "vehicles": 2,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 185.907877,
+     "vehicles": 2,
+     "seconds": 5.31,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 185.907877,
+     "vehicles": 2,
+     "seconds": 3.46,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 185.907877,
+     "vehicles": 2,
+     "seconds": 2.9,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 185.907877,
+     "vehicles": 2,
+     "seconds": 3.11,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 185.907877,
+     "vehicles": 2,
+     "seconds": 5.48,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC102",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.51,
+    "n_vars": 119,
+    "n_cons": 184,
+    "time_limit": 60.0,
+    "objective": 169.683231,
+    "vehicles": 2,
+    "bound": 169.683231,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 169.889903,
+    "vehicles": 2,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 2.94,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 4.01,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 4.72,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 3.47,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 2.03,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC103",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.69,
+    "n_vars": 119,
+    "n_cons": 184,
+    "time_limit": 60.0,
+    "objective": 169.683231,
+    "vehicles": 2,
+    "bound": 169.683231,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 169.889903,
+    "vehicles": 2,
+    "seconds": 0.1
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 7.25,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 2.69,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 3.36,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 3.82,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 169.683231,
+     "vehicles": 2,
+     "seconds": 6.05,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC104",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.72,
+    "n_vars": 126,
+    "n_cons": 201,
+    "time_limit": 60.0,
+    "objective": 166.048505,
+    "vehicles": 2,
+    "bound": 166.048505,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 169.889903,
+    "vehicles": 2,
+    "seconds": 0.11
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 3.17,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 2.93,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 6.16,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 2.3,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 5.02,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC105",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 2.26,
+    "n_vars": 106,
+    "n_cons": 156,
+    "time_limit": 60.0,
+    "objective": 179.305551,
+    "vehicles": 2,
+    "bound": 179.305551,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 179.305551,
+    "vehicles": 2,
+    "seconds": 0.08
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 179.305551,
+     "vehicles": 2,
+     "seconds": 4.59,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 179.305551,
+     "vehicles": 2,
+     "seconds": 1.88,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 179.305551,
+     "vehicles": 2,
+     "seconds": 3.0,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 179.305551,
+     "vehicles": 2,
+     "seconds": 3.29,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 179.305551,
+     "vehicles": 2,
+     "seconds": 4.33,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC106",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 2.19,
+    "n_vars": 103,
+    "n_cons": 146,
+    "time_limit": 60.0,
+    "objective": 178.087942,
+    "vehicles": 2,
+    "bound": 178.087942,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 185.907877,
+    "vehicles": 2,
+    "seconds": 0.2
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 5.47,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 5.85,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 3.84,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 4.52,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 5.67,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC107",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.25,
+    "n_vars": 117,
+    "n_cons": 177,
+    "time_limit": 60.0,
+    "objective": 168.167288,
+    "vehicles": 2,
+    "bound": 168.167288,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 178.087942,
+    "vehicles": 2,
+    "seconds": 0.04
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 3.37,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 6.13,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 3.45,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 3.11,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 2.58,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC108",
+   "family": "RC1",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.58,
+    "n_vars": 126,
+    "n_cons": 197,
+    "time_limit": 60.0,
+    "objective": 166.048505,
+    "vehicles": 2,
+    "bound": 166.048505,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 173.721898,
+    "vehicles": 2,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 6.34,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 3.73,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 2.36,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 3.51,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 8.61,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC201",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.16,
+    "n_vars": 94,
+    "n_cons": 102,
+    "time_limit": 60.0,
+    "objective": 183.135657,
+    "vehicles": 2,
+    "bound": 183.135657,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 194.566211,
+    "vehicles": 1,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 183.135657,
+     "vehicles": 2,
+     "seconds": 4.94,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 183.135657,
+     "vehicles": 2,
+     "seconds": 1.64,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 183.135657,
+     "vehicles": 2,
+     "seconds": 3.99,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 183.135657,
+     "vehicles": 2,
+     "seconds": 3.5,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 183.135657,
+     "vehicles": 2,
+     "seconds": 7.62,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC202",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 51.55,
+    "n_vars": 123,
+    "n_cons": 190,
+    "time_limit": 60.0,
+    "objective": 166.048505,
+    "vehicles": 2,
+    "bound": 166.048505,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 198.771208,
+    "vehicles": 1,
+    "seconds": 0.02
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 3.61,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 7.97,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 1.68,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 6.33,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 5.78,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC203",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 56.19,
+    "n_vars": 123,
+    "n_cons": 190,
+    "time_limit": 60.0,
+    "objective": 166.048505,
+    "vehicles": 2,
+    "bound": 166.048505,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 198.771208,
+    "vehicles": 1,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 8.61,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 3.38,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 2.88,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 2.17,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 166.048505,
+     "vehicles": 2,
+     "seconds": 6.83,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC204",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 23.29,
+    "n_vars": 128,
+    "n_cons": 204,
+    "time_limit": 60.0,
+    "objective": 137.77681,
+    "vehicles": 1,
+    "bound": 137.77681,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 185.507464,
+    "vehicles": 1,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 6.44,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 7.37,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 3.0,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 4.62,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 8.84,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC205",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 9.2,
+    "n_vars": 117,
+    "n_cons": 170,
+    "time_limit": 60.0,
+    "objective": 168.167288,
+    "vehicles": 2,
+    "bound": 168.167288,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 269.3566,
+    "vehicles": 1,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 6.22,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 6.6,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 4.6,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 6.0,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 168.167288,
+     "vehicles": 2,
+     "seconds": 3.7,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC206",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.95,
+    "n_vars": 108,
+    "n_cons": 144,
+    "time_limit": 60.0,
+    "objective": 178.087942,
+    "vehicles": 2,
+    "bound": 178.087942,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 221.930789,
+    "vehicles": 1,
+    "seconds": 0.05
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 6.8,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 2.02,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 8.14,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 5.02,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 178.087942,
+     "vehicles": 2,
+     "seconds": 7.44,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC207",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 7.8,
+    "n_vars": 116,
+    "n_cons": 166,
+    "time_limit": 60.0,
+    "objective": 168.167288,
+    "vehicles": 2,
+    "bound": 168.167288,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 179.298214,
+    "vehicles": 1,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 179.298214,
+     "vehicles": 1,
+     "seconds": 5.36,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 179.298214,
+     "vehicles": 1,
+     "seconds": 3.56,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 179.298214,
+     "vehicles": 1,
+     "seconds": 5.06,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 179.298214,
+     "vehicles": 1,
+     "seconds": 3.97,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 179.298214,
+     "vehicles": 1,
+     "seconds": 3.53,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "RC208",
+   "family": "RC2",
+   "n": 10,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 33.46,
+    "n_vars": 130,
+    "n_cons": 205,
+    "time_limit": 60.0,
+    "objective": 137.77681,
+    "vehicles": 1,
+    "bound": 137.77681,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 144.461283,
+    "vehicles": 1,
+    "seconds": 0.4
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 9.88,
+     "iters": 1000
+    },
+    {
+     "seed": 2,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 5.35,
+     "iters": 1000
+    },
+    {
+     "seed": 3,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 2.0,
+     "iters": 1000
+    },
+    {
+     "seed": 4,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 7.6,
+     "iters": 1000
+    },
+    {
+     "seed": 5,
+     "distance": 137.77681,
+     "vehicles": 1,
+     "seconds": 3.43,
+     "iters": 1000
+    }
+   ]
+  },
+  {
+   "instance": "C101",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.07,
+    "n_vars": 382,
+    "n_cons": 406,
+    "time_limit": 300.0,
+    "objective": 191.81362,
+    "vehicles": 3,
+    "bound": 191.81362,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 211.579838,
+    "vehicles": 3,
+    "seconds": 0.24
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 10.76,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 11.21,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 8.31,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 11.2,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 12.85,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C102",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 6.05,
+    "n_vars": 524,
+    "n_cons": 806,
+    "time_limit": 300.0,
+    "objective": 190.737629,
+    "vehicles": 3,
+    "bound": 190.737629,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 216.048022,
+    "vehicles": 3,
+    "seconds": 0.26
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 14.05,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 10.23,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 15.57,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 15.42,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 15.56,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C103",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 112.35,
+    "n_vars": 619,
+    "n_cons": 1058,
+    "time_limit": 300.0,
+    "objective": 190.737629,
+    "vehicles": 3,
+    "bound": 190.737629,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 218.960607,
+    "vehicles": 3,
+    "seconds": 0.13
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 7.47,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 7.72,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 7.05,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 7.87,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 190.737629,
+     "vehicles": 3,
+     "seconds": 9.14,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C104",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.06,
+    "n_vars": 654,
+    "n_cons": 1158,
+    "time_limit": 300.0,
+    "objective": 187.449455,
+    "vehicles": 3,
+    "bound": 180.645009,
+    "gap": 0.03630016633297969
+   },
+   "i1": {
+    "distance": 216.274704,
+    "vehicles": 3,
+    "seconds": 0.19
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 187.449455,
+     "vehicles": 3,
+     "seconds": 13.41,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 187.449455,
+     "vehicles": 3,
+     "seconds": 16.56,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 187.449455,
+     "vehicles": 3,
+     "seconds": 13.09,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 187.449455,
+     "vehicles": 3,
+     "seconds": 15.32,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 187.449455,
+     "vehicles": 3,
+     "seconds": 13.82,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C105",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.02,
+    "n_vars": 407,
+    "n_cons": 487,
+    "time_limit": 300.0,
+    "objective": 191.81362,
+    "vehicles": 3,
+    "bound": 191.81362,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 226.913552,
+    "vehicles": 3,
+    "seconds": 0.13
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 6.54,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.9,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 5.8,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.57,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.13,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C106",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.01,
+    "n_vars": 386,
+    "n_cons": 422,
+    "time_limit": 300.0,
+    "objective": 191.81362,
+    "vehicles": 3,
+    "bound": 191.81362,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 195.144555,
+    "vehicles": 3,
+    "seconds": 0.1
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.38,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.9,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.71,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 10.88,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 19.56,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C107",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.02,
+    "n_vars": 427,
+    "n_cons": 547,
+    "time_limit": 300.0,
+    "objective": 191.81362,
+    "vehicles": 3,
+    "bound": 191.81362,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 208.560251,
+    "vehicles": 3,
+    "seconds": 0.11
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 7.12,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 11.02,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 13.49,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 15.46,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 12.28,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C108",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.09,
+    "n_vars": 481,
+    "n_cons": 690,
+    "time_limit": 300.0,
+    "objective": 191.81362,
+    "vehicles": 3,
+    "bound": 191.81362,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 210.579325,
+    "vehicles": 3,
+    "seconds": 0.15
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 10.86,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 15.59,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 15.19,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 12.5,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 10.74,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C109",
+   "family": "C1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 27.71,
+    "n_vars": 532,
+    "n_cons": 839,
+    "time_limit": 300.0,
+    "objective": 191.81362,
+    "vehicles": 3,
+    "bound": 191.81362,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 213.674833,
+    "vehicles": 3,
+    "seconds": 0.1
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 11.49,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 13.85,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 13.16,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 20.61,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 191.81362,
+     "vehicles": 3,
+     "seconds": 12.71,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C201",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.25,
+    "n_vars": 403,
+    "n_cons": 403,
+    "time_limit": 300.0,
+    "objective": 215.542565,
+    "vehicles": 2,
+    "bound": 215.542565,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 328.89528,
+    "vehicles": 2,
+    "seconds": 0.12
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 6.7,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.02,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 7.96,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 10.03,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.12,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C202",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 9.97,
+    "n_vars": 548,
+    "n_cons": 827,
+    "time_limit": 300.0,
+    "objective": 215.542565,
+    "vehicles": 2,
+    "bound": 215.54251,
+    "gap": 2.5440447357462755e-07
+   },
+   "i1": {
+    "distance": 324.798294,
+    "vehicles": 1,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.43,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 9.36,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.33,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 7.79,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.11,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C203",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 83.44,
+    "n_vars": 634,
+    "n_cons": 1081,
+    "time_limit": 300.0,
+    "objective": 215.542565,
+    "vehicles": 2,
+    "bound": 215.542565,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 302.710491,
+    "vehicles": 2,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.29,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.32,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 9.32,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 10.18,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.4,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C204",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.2,
+    "n_vars": 672,
+    "n_cons": 1193,
+    "time_limit": 300.0,
+    "objective": 220.317565,
+    "vehicles": 2,
+    "bound": 191.312988,
+    "gap": 0.1316489534009921
+   },
+   "i1": {
+    "distance": 247.483472,
+    "vehicles": 1,
+    "seconds": 0.23
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 221.279307,
+     "vehicles": 1,
+     "seconds": 15.47,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 213.930068,
+     "vehicles": 1,
+     "seconds": 6.95,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 213.930068,
+     "vehicles": 1,
+     "seconds": 13.75,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 213.930068,
+     "vehicles": 1,
+     "seconds": 9.71,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 213.930068,
+     "vehicles": 1,
+     "seconds": 14.06,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C205",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.23,
+    "n_vars": 441,
+    "n_cons": 512,
+    "time_limit": 300.0,
+    "objective": 215.542565,
+    "vehicles": 2,
+    "bound": 215.542565,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 297.453015,
+    "vehicles": 1,
+    "seconds": 0.08
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 7.8,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.11,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 7.15,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 5.23,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 9.55,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C206",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 1.94,
+    "n_vars": 465,
+    "n_cons": 578,
+    "time_limit": 300.0,
+    "objective": 215.542565,
+    "vehicles": 2,
+    "bound": 215.542565,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 294.545406,
+    "vehicles": 1,
+    "seconds": 0.07
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 6.74,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 6.98,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 7.92,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 8.14,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.542565,
+     "vehicles": 2,
+     "seconds": 6.44,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C207",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 19.88,
+    "n_vars": 513,
+    "n_cons": 719,
+    "time_limit": 300.0,
+    "objective": 215.336038,
+    "vehicles": 2,
+    "bound": 215.336038,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 288.790648,
+    "vehicles": 1,
+    "seconds": 0.08
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.336038,
+     "vehicles": 2,
+     "seconds": 8.19,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.336038,
+     "vehicles": 2,
+     "seconds": 11.17,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.336038,
+     "vehicles": 2,
+     "seconds": 7.96,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.336038,
+     "vehicles": 2,
+     "seconds": 6.61,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.336038,
+     "vehicles": 2,
+     "seconds": 6.27,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "C208",
+   "family": "C2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 12.66,
+    "n_vars": 488,
+    "n_cons": 649,
+    "time_limit": 300.0,
+    "objective": 215.373517,
+    "vehicles": 2,
+    "bound": 215.373517,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 276.953006,
+    "vehicles": 1,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 215.373517,
+     "vehicles": 2,
+     "seconds": 10.88,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 215.373517,
+     "vehicles": 2,
+     "seconds": 8.08,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 215.373517,
+     "vehicles": 2,
+     "seconds": 7.67,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 215.373517,
+     "vehicles": 2,
+     "seconds": 6.19,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 215.373517,
+     "vehicles": 2,
+     "seconds": 6.59,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R101",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.02,
+    "n_vars": 274,
+    "n_cons": 280,
+    "time_limit": 300.0,
+    "objective": 618.329916,
+    "vehicles": 8,
+    "bound": 618.329916,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 669.66146,
+    "vehicles": 8,
+    "seconds": 0.13
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 618.329916,
+     "vehicles": 8,
+     "seconds": 9.96,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 618.329916,
+     "vehicles": 8,
+     "seconds": 8.95,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 618.329916,
+     "vehicles": 8,
+     "seconds": 8.61,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 618.329916,
+     "vehicles": 8,
+     "seconds": 11.61,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 618.329916,
+     "vehicles": 8,
+     "seconds": 12.01,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R102",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 73.84,
+    "n_vars": 462,
+    "n_cons": 729,
+    "time_limit": 300.0,
+    "objective": 548.107818,
+    "vehicles": 7,
+    "bound": 548.107818,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 621.785976,
+    "vehicles": 7,
+    "seconds": 0.18
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 548.107818,
+     "vehicles": 7,
+     "seconds": 7.47,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 548.107818,
+     "vehicles": 7,
+     "seconds": 20.62,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 548.107818,
+     "vehicles": 7,
+     "seconds": 16.95,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 548.107818,
+     "vehicles": 7,
+     "seconds": 10.22,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 548.107818,
+     "vehicles": 7,
+     "seconds": 17.08,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R103",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.12,
+    "n_vars": 573,
+    "n_cons": 989,
+    "time_limit": 300.0,
+    "objective": 485.834325,
+    "vehicles": 6,
+    "bound": 405.475241,
+    "gap": 0.16540429490600056
+   },
+   "i1": {
+    "distance": 576.428007,
+    "vehicles": 5,
+    "seconds": 0.23
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 455.698242,
+     "vehicles": 5,
+     "seconds": 13.27,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 455.698242,
+     "vehicles": 5,
+     "seconds": 11.92,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 455.698242,
+     "vehicles": 5,
+     "seconds": 15.88,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 455.698242,
+     "vehicles": 5,
+     "seconds": 14.39,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 455.698242,
+     "vehicles": 5,
+     "seconds": 20.03,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R104",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.05,
+    "n_vars": 628,
+    "n_cons": 1115,
+    "time_limit": 300.0,
+    "objective": 459.624056,
+    "vehicles": 5,
+    "bound": 358.127116,
+    "gap": 0.22082599535162756
+   },
+   "i1": {
+    "distance": 557.747074,
+    "vehicles": 4,
+    "seconds": 0.08
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 417.961229,
+     "vehicles": 4,
+     "seconds": 18.91,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 417.961229,
+     "vehicles": 4,
+     "seconds": 21.57,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 417.961229,
+     "vehicles": 4,
+     "seconds": 10.89,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 417.961229,
+     "vehicles": 4,
+     "seconds": 8.5,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 417.961229,
+     "vehicles": 4,
+     "seconds": 10.79,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R105",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.62,
+    "n_vars": 349,
+    "n_cons": 484,
+    "time_limit": 300.0,
+    "objective": 531.538642,
+    "vehicles": 6,
+    "bound": 531.538642,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 562.428404,
+    "vehicles": 5,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 531.538642,
+     "vehicles": 6,
+     "seconds": 12.73,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 531.538642,
+     "vehicles": 6,
+     "seconds": 12.36,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 531.538642,
+     "vehicles": 6,
+     "seconds": 11.79,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 531.538642,
+     "vehicles": 6,
+     "seconds": 11.8,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 531.538642,
+     "vehicles": 6,
+     "seconds": 14.84,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R106",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 70.8,
+    "n_vars": 511,
+    "n_cons": 856,
+    "time_limit": 300.0,
+    "objective": 466.480212,
+    "vehicles": 5,
+    "bound": 466.480212,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 542.71238,
+    "vehicles": 5,
+    "seconds": 0.15
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 466.480212,
+     "vehicles": 5,
+     "seconds": 8.62,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 466.480212,
+     "vehicles": 5,
+     "seconds": 8.04,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 466.480212,
+     "vehicles": 5,
+     "seconds": 9.15,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 466.480212,
+     "vehicles": 5,
+     "seconds": 9.79,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 466.480212,
+     "vehicles": 5,
+     "seconds": 9.2,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R107",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.07,
+    "n_vars": 599,
+    "n_cons": 1050,
+    "time_limit": 300.0,
+    "objective": 425.268525,
+    "vehicles": 4,
+    "bound": 389.120292,
+    "gap": 0.08500095939698847
+   },
+   "i1": {
+    "distance": 495.437123,
+    "vehicles": 4,
+    "seconds": 0.25
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 425.268525,
+     "vehicles": 4,
+     "seconds": 14.33,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 425.268525,
+     "vehicles": 4,
+     "seconds": 16.63,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 425.268525,
+     "vehicles": 4,
+     "seconds": 12.85,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 425.268525,
+     "vehicles": 4,
+     "seconds": 12.72,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 425.268525,
+     "vehicles": 4,
+     "seconds": 18.78,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R108",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.06,
+    "n_vars": 647,
+    "n_cons": 1157,
+    "time_limit": 300.0,
+    "objective": 410.96413,
+    "vehicles": 4,
+    "bound": 353.791463,
+    "gap": 0.13911838838788865
+   },
+   "i1": {
+    "distance": 449.598791,
+    "vehicles": 4,
+    "seconds": 0.43
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 398.294707,
+     "vehicles": 4,
+     "seconds": 15.47,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 398.294707,
+     "vehicles": 4,
+     "seconds": 18.69,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 398.294707,
+     "vehicles": 4,
+     "seconds": 20.93,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 398.294707,
+     "vehicles": 4,
+     "seconds": 17.18,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 398.294707,
+     "vehicles": 4,
+     "seconds": 10.82,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R109",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 6.36,
+    "n_vars": 459,
+    "n_cons": 761,
+    "time_limit": 300.0,
+    "objective": 442.625202,
+    "vehicles": 5,
+    "bound": 442.625202,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 523.361306,
+    "vehicles": 4,
+    "seconds": 0.08
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 442.625202,
+     "vehicles": 5,
+     "seconds": 8.82,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 442.625202,
+     "vehicles": 5,
+     "seconds": 10.63,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 442.625202,
+     "vehicles": 5,
+     "seconds": 21.32,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 442.625202,
+     "vehicles": 5,
+     "seconds": 12.72,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 442.625202,
+     "vehicles": 5,
+     "seconds": 13.18,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R110",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.18,
+    "n_vars": 576,
+    "n_cons": 1009,
+    "time_limit": 300.0,
+    "objective": 468.036443,
+    "vehicles": 5,
+    "bound": 379.487049,
+    "gap": 0.18919337393143792
+   },
+   "i1": {
+    "distance": 472.202956,
+    "vehicles": 4,
+    "seconds": 0.44
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 445.176767,
+     "vehicles": 5,
+     "seconds": 11.25,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 445.176767,
+     "vehicles": 5,
+     "seconds": 12.83,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 445.802829,
+     "vehicles": 4,
+     "seconds": 20.65,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 445.176767,
+     "vehicles": 5,
+     "seconds": 15.65,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 445.176767,
+     "vehicles": 5,
+     "seconds": 16.85,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R111",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.17,
+    "n_vars": 575,
+    "n_cons": 1003,
+    "time_limit": 300.0,
+    "objective": 429.696751,
+    "vehicles": 4,
+    "bound": 406.461183,
+    "gap": 0.05407433972995926
+   },
+   "i1": {
+    "distance": 506.744499,
+    "vehicles": 4,
+    "seconds": 0.32
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 429.696751,
+     "vehicles": 4,
+     "seconds": 14.44,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 429.696751,
+     "vehicles": 4,
+     "seconds": 15.51,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 429.696751,
+     "vehicles": 4,
+     "seconds": 20.69,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 429.696751,
+     "vehicles": 4,
+     "seconds": 23.71,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 429.696751,
+     "vehicles": 4,
+     "seconds": 21.19,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R112",
+   "family": "R1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.22,
+    "n_vars": 696,
+    "n_cons": 1253,
+    "time_limit": 300.0,
+    "objective": 405.202139,
+    "vehicles": 4,
+    "bound": 333.122587,
+    "gap": 0.17788541882232506
+   },
+   "i1": {
+    "distance": 444.424546,
+    "vehicles": 4,
+    "seconds": 0.44
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 394.101316,
+     "vehicles": 4,
+     "seconds": 18.95,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 394.101316,
+     "vehicles": 4,
+     "seconds": 26.12,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 394.101316,
+     "vehicles": 4,
+     "seconds": 24.75,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 405.363637,
+     "vehicles": 4,
+     "seconds": 26.87,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 395.090868,
+     "vehicles": 4,
+     "seconds": 26.64,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R201",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.13,
+    "n_vars": 447,
+    "n_cons": 548,
+    "time_limit": 300.0,
+    "objective": 464.374693,
+    "vehicles": 4,
+    "bound": 464.374693,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 598.109475,
+    "vehicles": 2,
+    "seconds": 0.14
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 465.184136,
+     "vehicles": 4,
+     "seconds": 5.99,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 464.374693,
+     "vehicles": 4,
+     "seconds": 5.74,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 464.374693,
+     "vehicles": 4,
+     "seconds": 5.93,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 464.374693,
+     "vehicles": 4,
+     "seconds": 6.12,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 464.374693,
+     "vehicles": 4,
+     "seconds": 6.17,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R202",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 55.09,
+    "n_vars": 568,
+    "n_cons": 893,
+    "time_limit": 300.0,
+    "objective": 411.487391,
+    "vehicles": 4,
+    "bound": 411.487391,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 607.908624,
+    "vehicles": 2,
+    "seconds": 0.12
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 411.487391,
+     "vehicles": 4,
+     "seconds": 5.43,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 412.192429,
+     "vehicles": 4,
+     "seconds": 7.15,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 418.58785,
+     "vehicles": 3,
+     "seconds": 6.99,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 418.58785,
+     "vehicles": 3,
+     "seconds": 7.84,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 418.58785,
+     "vehicles": 3,
+     "seconds": 6.54,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R203",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.15,
+    "n_vars": 646,
+    "n_cons": 1108,
+    "time_limit": 300.0,
+    "objective": 414.113777,
+    "vehicles": 4,
+    "bound": 346.409912,
+    "gap": 0.16349097598503126
+   },
+   "i1": {
+    "distance": 598.763474,
+    "vehicles": 2,
+    "seconds": 0.64
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 392.325186,
+     "vehicles": 3,
+     "seconds": 17.16,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 394.699829,
+     "vehicles": 3,
+     "seconds": 6.55,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 394.699829,
+     "vehicles": 3,
+     "seconds": 5.16,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 392.325186,
+     "vehicles": 3,
+     "seconds": 10.47,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 392.325186,
+     "vehicles": 3,
+     "seconds": 12.05,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R204",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.09,
+    "n_vars": 677,
+    "n_cons": 1203,
+    "time_limit": 300.0,
+    "objective": 363.677728,
+    "vehicles": 2,
+    "bound": 325.075897,
+    "gap": 0.1061429614636556
+   },
+   "i1": {
+    "distance": 552.104152,
+    "vehicles": 1,
+    "seconds": 0.24
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 360.619252,
+     "vehicles": 2,
+     "seconds": 14.87,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 355.891576,
+     "vehicles": 2,
+     "seconds": 5.07,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 358.578003,
+     "vehicles": 2,
+     "seconds": 4.68,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 355.891576,
+     "vehicles": 2,
+     "seconds": 4.62,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 360.619252,
+     "vehicles": 2,
+     "seconds": 4.62,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R205",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 12.57,
+    "n_vars": 538,
+    "n_cons": 803,
+    "time_limit": 300.0,
+    "objective": 394.062017,
+    "vehicles": 3,
+    "bound": 394.062017,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 557.689144,
+    "vehicles": 1,
+    "seconds": 0.3
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 394.062017,
+     "vehicles": 3,
+     "seconds": 13.38,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 394.062017,
+     "vehicles": 3,
+     "seconds": 10.57,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 394.062017,
+     "vehicles": 3,
+     "seconds": 16.02,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 394.062017,
+     "vehicles": 3,
+     "seconds": 10.72,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 394.062017,
+     "vehicles": 3,
+     "seconds": 12.3,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R206",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.05,
+    "n_vars": 615,
+    "n_cons": 1025,
+    "time_limit": 300.0,
+    "objective": 375.972814,
+    "vehicles": 4,
+    "bound": 346.851863,
+    "gap": 0.07745493728134567
+   },
+   "i1": {
+    "distance": 532.039013,
+    "vehicles": 1,
+    "seconds": 0.35
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 378.180603,
+     "vehicles": 2,
+     "seconds": 9.88,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 375.972814,
+     "vehicles": 4,
+     "seconds": 7.77,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 375.483432,
+     "vehicles": 3,
+     "seconds": 7.2,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 378.180603,
+     "vehicles": 2,
+     "seconds": 18.42,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 376.863153,
+     "vehicles": 3,
+     "seconds": 10.31,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R207",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.03,
+    "n_vars": 659,
+    "n_cons": 1155,
+    "time_limit": 300.0,
+    "objective": 376.780099,
+    "vehicles": 2,
+    "bound": 330.197163,
+    "gap": 0.12363427937604249
+   },
+   "i1": {
+    "distance": 462.352296,
+    "vehicles": 1,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 363.275317,
+     "vehicles": 2,
+     "seconds": 7.11,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 363.275317,
+     "vehicles": 2,
+     "seconds": 7.9,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 363.275317,
+     "vehicles": 2,
+     "seconds": 9.76,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 363.275317,
+     "vehicles": 2,
+     "seconds": 9.56,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 362.793275,
+     "vehicles": 2,
+     "seconds": 19.74,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R208",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 140.8,
+    "n_vars": 681,
+    "n_cons": 1218,
+    "time_limit": 300.0,
+    "objective": 329.333501,
+    "vehicles": 1,
+    "bound": 329.333501,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 365.728978,
+    "vehicles": 1,
+    "seconds": 0.43
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 329.333501,
+     "vehicles": 1,
+     "seconds": 18.64,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 329.333501,
+     "vehicles": 1,
+     "seconds": 8.92,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 329.333501,
+     "vehicles": 1,
+     "seconds": 8.57,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 329.333501,
+     "vehicles": 1,
+     "seconds": 10.87,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 329.333501,
+     "vehicles": 1,
+     "seconds": 11.74,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R209",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 47.62,
+    "n_vars": 595,
+    "n_cons": 990,
+    "time_limit": 300.0,
+    "objective": 371.561866,
+    "vehicles": 2,
+    "bound": 371.561866,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 484.111036,
+    "vehicles": 1,
+    "seconds": 0.25
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 371.561866,
+     "vehicles": 2,
+     "seconds": 10.03,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 371.561866,
+     "vehicles": 2,
+     "seconds": 11.12,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 371.561866,
+     "vehicles": 2,
+     "seconds": 7.22,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 373.08073,
+     "vehicles": 2,
+     "seconds": 8.47,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 373.08073,
+     "vehicles": 2,
+     "seconds": 11.81,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R210",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 286.45,
+    "n_vars": 610,
+    "n_cons": 1013,
+    "time_limit": 300.0,
+    "objective": 405.478354,
+    "vehicles": 3,
+    "bound": 405.478354,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 528.499393,
+    "vehicles": 2,
+    "seconds": 0.26
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 405.478354,
+     "vehicles": 3,
+     "seconds": 9.04,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 410.6045,
+     "vehicles": 2,
+     "seconds": 9.42,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 405.478354,
+     "vehicles": 3,
+     "seconds": 11.07,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 410.6045,
+     "vehicles": 2,
+     "seconds": 8.6,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 405.478354,
+     "vehicles": 3,
+     "seconds": 8.53,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "R211",
+   "family": "R2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.07,
+    "n_vars": 697,
+    "n_cons": 1252,
+    "time_limit": 300.0,
+    "objective": 358.858386,
+    "vehicles": 2,
+    "bound": 319.27249,
+    "gap": 0.11031063363190943
+   },
+   "i1": {
+    "distance": 419.410136,
+    "vehicles": 1,
+    "seconds": 0.26
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 351.910761,
+     "vehicles": 2,
+     "seconds": 11.89,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 351.910761,
+     "vehicles": 2,
+     "seconds": 14.02,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 351.910761,
+     "vehicles": 2,
+     "seconds": 11.25,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 351.910761,
+     "vehicles": 2,
+     "seconds": 8.94,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 351.910761,
+     "vehicles": 2,
+     "seconds": 9.88,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC101",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 4.65,
+    "n_vars": 326,
+    "n_cons": 446,
+    "time_limit": 300.0,
+    "objective": 462.155947,
+    "vehicles": 4,
+    "bound": 462.155947,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 481.966956,
+    "vehicles": 4,
+    "seconds": 0.3
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 462.155947,
+     "vehicles": 4,
+     "seconds": 12.86,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 462.155947,
+     "vehicles": 4,
+     "seconds": 13.15,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 462.155947,
+     "vehicles": 4,
+     "seconds": 23.0,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 462.155947,
+     "vehicles": 4,
+     "seconds": 15.29,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 462.155947,
+     "vehicles": 4,
+     "seconds": 18.97,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC102",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 44.72,
+    "n_vars": 489,
+    "n_cons": 805,
+    "time_limit": 300.0,
+    "objective": 352.74427,
+    "vehicles": 3,
+    "bound": 352.74427,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 352.950941,
+    "vehicles": 3,
+    "seconds": 0.42
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 352.74427,
+     "vehicles": 3,
+     "seconds": 21.02,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 352.74427,
+     "vehicles": 3,
+     "seconds": 30.9,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 352.74427,
+     "vehicles": 3,
+     "seconds": 15.11,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 352.74427,
+     "vehicles": 3,
+     "seconds": 23.72,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 352.74427,
+     "vehicles": 3,
+     "seconds": 23.59,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC103",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.06,
+    "n_vars": 594,
+    "n_cons": 1039,
+    "time_limit": 300.0,
+    "objective": 334.114862,
+    "vehicles": 3,
+    "bound": 308.052176,
+    "gap": 0.07800516932278863
+   },
+   "i1": {
+    "distance": 340.920053,
+    "vehicles": 3,
+    "seconds": 0.13
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 333.918636,
+     "vehicles": 3,
+     "seconds": 19.53,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 333.918636,
+     "vehicles": 3,
+     "seconds": 17.06,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 333.918636,
+     "vehicles": 3,
+     "seconds": 12.52,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 333.918636,
+     "vehicles": 3,
+     "seconds": 15.08,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 333.918636,
+     "vehicles": 3,
+     "seconds": 14.88,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC104",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.09,
+    "n_vars": 640,
+    "n_cons": 1142,
+    "time_limit": 300.0,
+    "objective": 307.139003,
+    "vehicles": 3,
+    "bound": 299.558386,
+    "gap": 0.02468138669407459
+   },
+   "i1": {
+    "distance": 314.543235,
+    "vehicles": 3,
+    "seconds": 0.28
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 307.139003,
+     "vehicles": 3,
+     "seconds": 17.39,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 307.139003,
+     "vehicles": 3,
+     "seconds": 11.98,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 307.139003,
+     "vehicles": 3,
+     "seconds": 13.85,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 307.139003,
+     "vehicles": 3,
+     "seconds": 16.81,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 307.139003,
+     "vehicles": 3,
+     "seconds": 18.89,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC105",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.11,
+    "n_vars": 420,
+    "n_cons": 670,
+    "time_limit": 300.0,
+    "objective": 412.376588,
+    "vehicles": 4,
+    "bound": 370.530656,
+    "gap": 0.10147504221859441
+   },
+   "i1": {
+    "distance": 473.672922,
+    "vehicles": 4,
+    "seconds": 0.38
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 412.376588,
+     "vehicles": 4,
+     "seconds": 14.65,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 412.376588,
+     "vehicles": 4,
+     "seconds": 39.07,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 412.798573,
+     "vehicles": 4,
+     "seconds": 12.33,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 412.376588,
+     "vehicles": 4,
+     "seconds": 13.39,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 413.533698,
+     "vehicles": 4,
+     "seconds": 14.78,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC106",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 120.34,
+    "n_vars": 437,
+    "n_cons": 715,
+    "time_limit": 300.0,
+    "objective": 346.505446,
+    "vehicles": 3,
+    "bound": 346.505446,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 360.96486,
+    "vehicles": 3,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 346.505446,
+     "vehicles": 3,
+     "seconds": 12.11,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 346.505446,
+     "vehicles": 3,
+     "seconds": 18.14,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 346.505446,
+     "vehicles": 3,
+     "seconds": 14.44,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 346.505446,
+     "vehicles": 3,
+     "seconds": 16.58,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 346.505446,
+     "vehicles": 3,
+     "seconds": 11.6,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC107",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 40.01,
+    "n_vars": 563,
+    "n_cons": 983,
+    "time_limit": 300.0,
+    "objective": 298.949842,
+    "vehicles": 3,
+    "bound": 298.949842,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 314.495822,
+    "vehicles": 3,
+    "seconds": 0.25
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 16.43,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 25.29,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 25.25,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 11.26,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 14.65,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC108",
+   "family": "RC1",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 162.2,
+    "n_vars": 666,
+    "n_cons": 1195,
+    "time_limit": 300.0,
+    "objective": 294.99444,
+    "vehicles": 3,
+    "bound": 294.99444,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 306.862769,
+    "vehicles": 3,
+    "seconds": 0.78
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 294.99444,
+     "vehicles": 3,
+     "seconds": 32.79,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 294.99444,
+     "vehicles": 3,
+     "seconds": 26.97,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 294.99444,
+     "vehicles": 3,
+     "seconds": 16.55,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 294.99444,
+     "vehicles": 3,
+     "seconds": 17.81,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 294.99444,
+     "vehicles": 3,
+     "seconds": 19.99,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC201",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 0.21,
+    "n_vars": 451,
+    "n_cons": 579,
+    "time_limit": 300.0,
+    "objective": 361.241026,
+    "vehicles": 3,
+    "bound": 361.241026,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 638.839386,
+    "vehicles": 2,
+    "seconds": 0.09
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 361.241026,
+     "vehicles": 3,
+     "seconds": 14.48,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 361.241026,
+     "vehicles": 3,
+     "seconds": 16.74,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 361.241026,
+     "vehicles": 3,
+     "seconds": 9.24,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 361.241026,
+     "vehicles": 3,
+     "seconds": 11.95,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 361.241026,
+     "vehicles": 3,
+     "seconds": 9.02,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC202",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.05,
+    "n_vars": 572,
+    "n_cons": 912,
+    "time_limit": 300.0,
+    "objective": 338.867942,
+    "vehicles": 3,
+    "bound": 278.784825,
+    "gap": 0.17730540266371322
+   },
+   "i1": {
+    "distance": 556.31155,
+    "vehicles": 1,
+    "seconds": 0.11
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 338.823892,
+     "vehicles": 3,
+     "seconds": 9.1,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 338.823892,
+     "vehicles": 3,
+     "seconds": 11.14,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 338.823892,
+     "vehicles": 3,
+     "seconds": 10.79,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 338.823892,
+     "vehicles": 3,
+     "seconds": 11.94,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 338.823892,
+     "vehicles": 3,
+     "seconds": 10.65,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC203",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.05,
+    "n_vars": 646,
+    "n_cons": 1115,
+    "time_limit": 300.0,
+    "objective": 330.893915,
+    "vehicles": 3,
+    "bound": 185.285121,
+    "gap": 0.44004675551675393
+   },
+   "i1": {
+    "distance": 487.255684,
+    "vehicles": 1,
+    "seconds": 0.12
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 356.219758,
+     "vehicles": 2,
+     "seconds": 9.98,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 327.693247,
+     "vehicles": 3,
+     "seconds": 10.41,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 327.693247,
+     "vehicles": 3,
+     "seconds": 10.06,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 327.693247,
+     "vehicles": 3,
+     "seconds": 13.32,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 327.693247,
+     "vehicles": 3,
+     "seconds": 11.56,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC204",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.06,
+    "n_vars": 677,
+    "n_cons": 1205,
+    "time_limit": 300.0,
+    "objective": 305.588758,
+    "vehicles": 3,
+    "bound": 175.885748,
+    "gap": 0.4244364580990295
+   },
+   "i1": {
+    "distance": 370.520286,
+    "vehicles": 1,
+    "seconds": 0.13
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 327.32562,
+     "vehicles": 1,
+     "seconds": 13.49,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 327.32562,
+     "vehicles": 1,
+     "seconds": 11.44,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 327.32562,
+     "vehicles": 1,
+     "seconds": 16.43,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 327.32562,
+     "vehicles": 1,
+     "seconds": 13.74,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 319.676571,
+     "vehicles": 2,
+     "seconds": 14.26,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC205",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 18.61,
+    "n_vars": 533,
+    "n_cons": 805,
+    "time_limit": 300.0,
+    "objective": 338.929401,
+    "vehicles": 3,
+    "bound": 338.929401,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 616.458562,
+    "vehicles": 2,
+    "seconds": 0.11
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 338.929401,
+     "vehicles": 3,
+     "seconds": 12.39,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 338.929401,
+     "vehicles": 3,
+     "seconds": 9.83,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 338.929401,
+     "vehicles": 3,
+     "seconds": 10.6,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 338.929401,
+     "vehicles": 3,
+     "seconds": 8.85,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 338.929401,
+     "vehicles": 3,
+     "seconds": 11.58,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC206",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 0,
+    "optimal": true,
+    "seconds": 84.08,
+    "n_vars": 542,
+    "n_cons": 828,
+    "time_limit": 300.0,
+    "objective": 325.10443,
+    "vehicles": 3,
+    "bound": 325.10443,
+    "gap": 0.0
+   },
+   "i1": {
+    "distance": 576.086638,
+    "vehicles": 1,
+    "seconds": 0.51
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 344.928406,
+     "vehicles": 2,
+     "seconds": 12.53,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 325.10443,
+     "vehicles": 3,
+     "seconds": 16.15,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 325.10443,
+     "vehicles": 3,
+     "seconds": 10.07,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 325.10443,
+     "vehicles": 3,
+     "seconds": 13.1,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 344.928406,
+     "vehicles": 2,
+     "seconds": 12.38,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC207",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.08,
+    "n_vars": 611,
+    "n_cons": 1040,
+    "time_limit": 300.0,
+    "objective": 303.099313,
+    "vehicles": 3,
+    "bound": 236.266985,
+    "gap": 0.22049646889198554
+   },
+   "i1": {
+    "distance": 540.11154,
+    "vehicles": 2,
+    "seconds": 0.35
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 311.927553,
+     "vehicles": 2,
+     "seconds": 9.85,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 8.32,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 311.927553,
+     "vehicles": 2,
+     "seconds": 8.02,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 298.949842,
+     "vehicles": 3,
+     "seconds": 7.92,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 311.927553,
+     "vehicles": 2,
+     "seconds": 7.38,
+     "iters": 2000
+    }
+   ]
+  },
+  {
+   "instance": "RC208",
+   "family": "RC2",
+   "n": 25,
+   "mip": {
+    "status": 1,
+    "optimal": false,
+    "seconds": 300.11,
+    "n_vars": 700,
+    "n_cons": 1259,
+    "time_limit": 300.0,
+    "objective": 275.402438,
+    "vehicles": 2,
+    "bound": 167.249905,
+    "gap": 0.3927072476989091
+   },
+   "i1": {
+    "distance": 330.231966,
+    "vehicles": 1,
+    "seconds": 0.11
+   },
+   "alns": [
+    {
+     "seed": 1,
+     "distance": 312.644214,
+     "vehicles": 1,
+     "seconds": 8.87,
+     "iters": 2000
+    },
+    {
+     "seed": 2,
+     "distance": 318.460669,
+     "vehicles": 1,
+     "seconds": 9.07,
+     "iters": 2000
+    },
+    {
+     "seed": 3,
+     "distance": 318.460669,
+     "vehicles": 1,
+     "seconds": 9.02,
+     "iters": 2000
+    },
+    {
+     "seed": 4,
+     "distance": 312.900871,
+     "vehicles": 1,
+     "seconds": 11.37,
+     "iters": 2000
+    },
+    {
+     "seed": 5,
+     "distance": 318.460669,
+     "vehicles": 1,
+     "seconds": 9.62,
+     "iters": 2000
+    }
+   ]
+  }
+ ]
+}
