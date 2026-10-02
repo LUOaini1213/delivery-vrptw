@@ -7,7 +7,8 @@ departure times (from drone.chain_trips). Uncertainty per scenario (seeded):
     heading h the ground speed is  v_g = w.h + sqrt(v_air^2 - |w x h|^2); flight time
     and energy both scale with v_air / v_g (constant power at constant airspeed);
   * per-arc multiplicative noise LogNormal(0, 0.05) on time and energy;
-  * service (drop-off) time multiplied by LogNormal(0, 0.3).
+  * customer service (drop-off) time multiplied by LogNormal(0, 0.3); depot
+    preparation service remains deterministic and precedes the first flight.
 Random numbers are drawn per scenario independently of the policy, so all
 policies see exactly the same scenario (common random numbers -> paired comparison).
 A drone departs a trip at max(planned departure, time it is free again), waits on
@@ -74,6 +75,8 @@ def execute_trip(inst, sc: Scenario, nodes, dep):
     for i, j in zip(nodes[:-1], nodes[1:]):
         if i >= inst.n_depots:
             t += inst.service[i] * sc.service_noise[i]
+        else:
+            t += inst.service[i]
         h = min(int(max(t, 0.0) // 60.0), H - 1)
         f = sc.factors[h, i, j] * sc.arc_noise[i, j]
         t += inst.time[i, j] * f
@@ -131,14 +134,23 @@ def bootstrap_ci(x, n_boot=2000, alpha=0.05, seed=0):
 # ----------------------------------------------------------------------------- rolling re-planning
 
 def sub_instance(inst, customers, depot_ready, factor):
-    """Planning instance on depots + `customers`, depots open from `depot_ready`,
-    travel times and energy distances multiplied by `factor`."""
+    """Planning copy on still-available depots and customers, plus original node IDs.
+
+    A depot opens no earlier than its original ready time or the current epoch.
+    Closed depots are excluded, not reopened; local depot IDs therefore change.
+    Travel times and energy distances are multiplied by `factor`.
+    """
     from dataclasses import replace
-    idx = np.array(list(range(inst.n_depots)) + list(customers), dtype=int)
+    inst.validate()
+    depots = [d for d in range(inst.n_depots) if inst.due[d] >= max(depot_ready, inst.ready[d])]
+    if not depots:
+        raise RuntimeError(f"all depots are closed at time {depot_ready}; cannot dispatch remaining customers")
+    idx = np.array(depots + list(customers), dtype=int)
     ix = np.ix_(idx, idx)
     ready = inst.ready[idx].copy()
-    ready[: inst.n_depots] = depot_ready
-    sub = replace(inst, name=f"{inst.name}@{depot_ready:.0f}", coords=inst.coords[idx], demand=inst.demand[idx],
+    ready[:len(depots)] = np.maximum(ready[:len(depots)], depot_ready)
+    sub = replace(inst, name=f"{inst.name}@{depot_ready:.0f}", n_depots=len(depots),
+                  coords=inst.coords[idx], demand=inst.demand[idx],
                   ready=ready, due=inst.due[idx], service=inst.service[idx], dist=inst.dist[ix],
                   time=inst.time[ix] * factor, energy_dist=inst.energy_dist[ix] * factor, meta={})
     return sub, idx
@@ -168,10 +180,17 @@ def run_rolling(inst, sc: Scenario, swap, iters=200, seed=0, theta=0.0, period=6
         sub, idx = sub_instance(inst, sorted(unserved), tau, f)
         sol, _ = solve(sub, best_i1(sub), iters=iters, seed=seed + epochs)
         trips = complete_with_singletons(sub, sol)
-        plan = chain_trips(sub, trips, swap, available=[(d["depot"], d["free"]) for d in drones], keep_all=True)
-        for di, dr in enumerate(plan):
-            if di >= len(drones):
-                drones.append({"depot": dr["depot"], "free": -np.inf, "used": False})
+        depot_to_local = {int(idx[d]): d for d in range(sub.n_depots)}
+        active_drones = [di for di, dr in enumerate(drones) if dr["depot"] in depot_to_local]
+        available = [(depot_to_local[drones[di]["depot"]], drones[di]["free"]) for di in active_drones]
+        # keep_all preserves this filtered prefix; new plan entries are new drones.
+        plan = chain_trips(sub, trips, swap, available=available, keep_all=True)
+        for pi, dr in enumerate(plan):
+            if pi < len(active_drones):
+                di = active_drones[pi]
+            else:
+                di = len(drones)
+                drones.append({"depot": int(idx[dr["depot"]]), "free": -np.inf, "used": False})
             free = drones[di]["free"]
             for k, dep, _ in dr["trips"]:
                 d = max(dep, free)

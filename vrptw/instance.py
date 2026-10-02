@@ -11,10 +11,36 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field, replace
 from pathlib import Path
+from numbers import Integral, Real
 
 import numpy as np
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+
+
+def _number(value, name, minimum=None, positive=False):
+    if isinstance(value, (bool, np.bool_)) or not isinstance(value, Real) or not np.isfinite(value):
+        raise ValueError(f"{name} must be a finite real number, not a boolean")
+    if minimum is not None and (value < minimum or (positive and value == minimum)):
+        raise ValueError(f"{name} must be {'greater than' if positive else 'at least'} {minimum}")
+
+
+def _integer(value, name, minimum=0):
+    if isinstance(value, (bool, np.bool_)) or not isinstance(value, Integral) or value < minimum:
+        raise ValueError(f"{name} must be an integer >= {minimum}")
+
+
+def _array(value, name):
+    # Inspect before casting: True and numeric strings must not silently become measurements.
+    raw = np.asarray(value)
+    objects = np.asarray(value, dtype=object)
+    if raw.dtype.kind not in "iuf" or any(isinstance(v, (bool, np.bool_)) for v in objects.flat):
+        raise ValueError(f"{name} must contain real numbers, not strings or booleans")
+    result = np.array(value, dtype=float, copy=True)
+    if not np.isfinite(result).all():
+        raise ValueError(f"{name} must contain only finite values")
+    result.flags.writeable = False
+    return result
 
 
 @dataclass(frozen=True)
@@ -31,6 +57,17 @@ class EnergyModel:
     e_trip: float
     battery: float
     reserve: float
+
+    def __post_init__(self):
+        self.validate()
+
+    def validate(self):
+        for name in ("a", "b", "e_trip"):
+            _number(getattr(self, name), name, 0)
+        _number(self.battery, "battery", 0, positive=True)
+        _number(self.reserve, "reserve", 0)
+        if self.reserve > 1:
+            raise ValueError("reserve must be between zero and one")
 
     @property
     def usable(self) -> float:
@@ -59,8 +96,50 @@ class Instance:
     meta: dict = field(default_factory=dict)
 
     def __post_init__(self):
+        for name in ("coords", "demand", "ready", "due", "service", "dist", "time"):
+            setattr(self, name, _array(getattr(self, name), name))
         if self.energy_dist is None:
             self.energy_dist = self.dist
+        else:
+            self.energy_dist = _array(self.energy_dist, "energy_dist")
+        self.validate()
+
+    def validate(self):
+        """Validate data, not solvability; zero-demand visits and zero fleet are legitimate.
+
+        Constructor arrays are owned read-only snapshots. Prefer dataclasses.replace to change
+        data. Reassigned arrays are checked again at solver/checker entry; mutable replacements
+        disable the search-side list cache so subsequent edits cannot leave it stale.
+        """
+        _integer(self.n_depots, "n_depots", 1)
+        if not isinstance(self.demand, np.ndarray) or self.demand.ndim != 1:
+            raise ValueError("demand must be a one-dimensional numeric array")
+        n = len(self.demand)
+        if self.n_depots > n:
+            raise ValueError("n_depots exceeds number of nodes")
+        for name in ("coords", "demand", "ready", "due", "service", "dist", "time", "energy_dist"):
+            a = getattr(self, name)
+            shape = (n, 2) if name == "coords" else (n, n) if name in ("dist", "time", "energy_dist") else (n,)
+            if (not isinstance(a, np.ndarray) or a.shape != shape or a.dtype.kind not in "iuf"
+                    or not np.isfinite(a).all()):
+                raise ValueError(f"{name} must be a finite numeric array of shape {shape}")
+            if name not in ("coords", "ready", "due") and np.any(a < 0):
+                raise ValueError(f"{name} must be nonnegative")
+        if np.any(self.ready > self.due):
+            raise ValueError("ready must not exceed due")
+        if np.any(self.demand[:self.n_depots] != 0):
+            raise ValueError("depot demand must be zero")
+        _number(self.capacity, "capacity", 0)
+        if self.max_vehicles is not None:
+            _integer(self.max_vehicles, "max_vehicles")
+        if self.max_duration is not None:
+            _number(self.max_duration, "max_duration", 0)
+        for name in ("vehicle_cost", "w_dist", "w_energy"):
+            _number(getattr(self, name), name, 0)
+        if self.energy is not None:
+            if not isinstance(self.energy, EnergyModel):
+                raise ValueError("energy must be an EnergyModel or None")
+            self.energy.validate()
 
     @property
     def n_nodes(self) -> int:
@@ -119,6 +198,10 @@ def load_solomon(name: str, n_customers: int | None = None) -> Instance:
 
 def subset(inst: Instance, n: int) -> Instance:
     """First n customers (the convention used for the 25/50-customer Solomon sets)."""
+    inst.validate()
+    _integer(n, "n_customers")
+    if n > inst.n_customers:
+        raise ValueError("n_customers exceeds available customers")
     idx = np.arange(inst.n_depots + n)
     ed = inst.energy_dist[np.ix_(idx, idx)] if inst.energy_dist is not inst.dist else None
     return replace(inst, name=f"{inst.name}.{n}", coords=inst.coords[idx], demand=inst.demand[idx],
@@ -155,10 +238,12 @@ def make_instance(name, coords, demand, ready, due, service, capacity, n_depots=
                   energy: EnergyModel | None = None, max_vehicles=None, max_duration=None,
                   **objective) -> Instance:
     """Build an instance from raw arrays (Euclidean distances, travel time = distance / speed)."""
-    coords = np.asarray(coords, dtype=float)
+    _number(speed, "speed", 0, positive=True)
+    coords = _array(coords, "coords")
+    if coords.ndim != 2 or coords.shape[1] != 2:
+        raise ValueError("coords must have shape (N, 2)")
     d = euclid(coords)
-    return Instance(name=name, n_depots=n_depots, coords=coords, demand=np.asarray(demand, float),
-                    ready=np.asarray(ready, float), due=np.asarray(due, float),
-                    service=np.asarray(service, float), capacity=float(capacity), dist=d,
+    return Instance(name=name, n_depots=n_depots, coords=coords, demand=demand,
+                    ready=ready, due=due, service=service, capacity=capacity, dist=d,
                     time=d / speed, max_vehicles=max_vehicles, max_duration=max_duration, energy=energy,
                     **objective)

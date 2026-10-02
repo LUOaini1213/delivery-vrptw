@@ -5,17 +5,46 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -r requirements.txt
+      - name: data hashes
+        run: python scripts/fetch_data.py --verify
+      - name: unit tests
+        run: python -m pytest -q --junitxml=artifacts/tests.xml
+      - name: README tables match results/*.json
+        run: python scripts/check_readme.py --check
+      - name: smoke run
+        run: python scripts/smoke.py
+      - name: current-code exhaustive and benchmark checks
+        run: python scripts/review_check.py --output artifacts/review.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vrptw-${{ matrix.python }}
+          path: artifacts/
+  mutations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - name: data hashes
-        run: python scripts/fetch_data.py --verify
-      - name: unit tests
-        run: python -m pytest -q
-      - name: README tables match results/*.json
-        run: python scripts/check_readme.py --check
-      - name: smoke run
-        run: python scripts/smoke.py
+      - name: mutation harness self-checks
+        run: python scripts/mutation_check.py --self-test
+      - name: actual assertion failures required
+        run: python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifacts/mutations
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vrptw-mutations
+          path: artifacts/

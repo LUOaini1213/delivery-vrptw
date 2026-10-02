@@ -3,3 +3,5 @@ __pycache__/
 .pytest_cache/
 *.log
 prof.out
+artifacts/
+results/mutation-runs/
