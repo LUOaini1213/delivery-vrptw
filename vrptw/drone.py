@@ -98,11 +98,26 @@ def generate(seed: int, n: int = 60, n_depots: int = 2, spec: DroneSpec = DroneS
 
 
 def complete_with_singletons(inst, sol):
-    """Routes of `sol` plus one single-customer trip (from the nearest depot) per unassigned customer."""
+    """Preserve planned routes and add one trip per unassigned customer.
+
+    Prefer the nearest depot whose singleton meets all route constraints and
+    whose fleet still has a slot, counting both existing and newly added trips.
+    If none qualifies, use the nearest depot anyway: this execution fallback
+    deliberately retains late or otherwise infeasible deliveries for simulation
+    and violation accounting. The returned routes are not guaranteed feasible.
+    """
+    inst.validate()
     routes = sol.as_lists()
+    per_depot = {d: 0 for d in range(inst.n_depots)}
+    for route in routes:
+        per_depot[route[0]] += 1
     for c in sol.unassigned:
-        d = min(range(inst.n_depots), key=lambda k: inst.dist[k, c])
+        depots = sorted(range(inst.n_depots), key=lambda d: (inst.dist[d, c], d))
+        d = next((d for d in depots
+                  if (inst.max_vehicles is None or per_depot[d] < inst.max_vehicles)
+                  and Route(inst, [d, c, d]).feasible(inst)), depots[0])
         routes.append([d, c, d])
+        per_depot[d] += 1
     return routes
 
 

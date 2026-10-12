@@ -381,7 +381,7 @@ def block_en_findings(_):
 # ----------------------------------------------------------------------------- misc
 
 def block_mutation(d):
-    return (f"变异测试：{d['killed']}/{d['total']} 个故意植入的缺陷被测试抓到（详见 [MUTATION.md](MUTATION.md)）；"
+    return (f"历史变异记录（`24d7d0f` 的旧框架）：{d['killed']}/{d['total']} 个故意植入的缺陷被标记为检出（详见 [MUTATION.md](MUTATION.md)）；"
             f"未修改副本测试通过、等价变异存活（证明工具能报告“漏网”）。"
             + ("首轮漏网的变异、以及为它们补上的测试也记在 MUTATION.md 里。" if d.get("history") else ""))
 

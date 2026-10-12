@@ -6,6 +6,19 @@
 > 所有数字都由 `scripts/` 下的脚本跑出、写进 `results/*.json`，README 里的表格由
 > `scripts/check_readme.py` 从这些 JSON 生成（CI 里 `--check` 不一致就失败）。
 
+### 当前代码与历史实验
+
+下方大规模结果表及根目录 `MUTATION.md` 保留自 `24d7d0f`，没有因本次代码修复而重写。
+它们描述当时的实验，不代表新版已重跑全部 112 个小实例、56 个大实例和 1000 个仿真场景。
+新版的复核入口是 `scripts/review_check.py`：12 组小问题逐一对照穷举，再检查六类 Solomon
+各一个 10 客户实例，独立复算可行性及目标。输出带时间、依赖版本、源码和数据清单摘要；
+完整测试另行复核已存储的大实例路径。CI 保存当前提交的报告、测试 XML 和变异证据。
+
+本轮修复了三类会影响结论的问题：非法节点编号被 Python 负索引接纳；零需求且同址客户
+形成不连接仓库的子环；搜索缓存沿用修改前的需求或时间数据。多仓 I1 也会检查其他可用仓库，
+不再因最便宜仓库不可用而直接丢弃客户。MIP 增加与货量无关的连通流，并在返回结果前独立
+检查每个客户、路线闭合、物理约束和目标值；测试错误与真正检测到缺陷在变异报告中分开处理。
+
 **English summary.** A from-scratch Python study of the vehicle routing problem with time windows (VRPTW)
 and a delivery-drone variant (payload, payload-dependent battery energy with a reserve, time windows,
 maximum trip duration, battery swaps at one or two depots). It contains an independent feasibility
@@ -33,16 +46,42 @@ python -m pytest -q                  # 单元测试 + README/结果一致性检�
 python scripts/smoke.py              # 小实例冒烟：可行性 + 启发式不优于已证明最优
 ```
 
+本次改进的单独复核（不覆盖历史结果）：
+
+```bash
+python scripts/fetch_data.py --verify
+python scripts/review_check.py --output artifacts/review.json
+python scripts/mutation_check.py --self-test
+python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifacts/mutations
+```
+
+复核输出路径已存在时会拒绝覆盖；再次运行请换一个新路径。变异运行使用独立临时副本，
+先要求原版和仅改注释的对照全部通过，再逐项植入缺陷。只有 pytest 的实际测试失败才算检出；
+收集或环境错误、跳过、超时、缺报告和仍通过的变异都会使命令失败。旧 `results/mutation.json`
+的数字保留用于历史记录，当前验收看新运行目录中的报告。
+
 完整重跑（本地，数小时）：`python scripts/run_small.py`、`python scripts/run_solomon.py`、
 `python scripts/run_drone.py`、`python scripts/run_sim.py`、`python scripts/mutation_check.py`，
 然后 `python scripts/check_readme.py --write`。预算都以**迭代次数**给定，同一环境下同一种子的结果可复现（测试里有确定性检查）；
 秒数含多进程并行争用、随机器变化，仅供参考。
 
 <!-- BEGIN:tests -->
-`python -m pytest -q` 共 110 个测试。
+`python -m pytest -q` 共 388 个测试。
 <!-- END:tests -->
 
 ## 问题定义
+
+**输入与返回值。** 数据必须是形状一致的有限实数，距离、耗时、需求、服务时间及成本权重非负；
+仓库需求为零。零需求、同位置客户、零容量、零车辆和空客户集都有定义，不依靠排除这些情况来保证连通。
+构造函数保存自有只读数组，修改数据推荐 `dataclasses.replace(inst, demand=...)`；重赋可写数组后
+搜索端停用对应缓存，求解与校验入口重新验证数据。不要复用旧实例的路线缓存作为新结果。
+路线编号接受 Python/NumPy 整数，拒绝布尔、浮点、负数和越界编号；`evaluate` 支持一次性生成器，
+将畸形路线记为不可行且不计入正常客户/费用统计。路线辅助函数对空仓库行程返回中性结果。
+
+`solve_mip` 的 `valid` 表示路线通过独立复核；`optimal` 还要求求解成功、零 gap 且上下界一致
+（浮点比较容差为绝对 `1e-6`、相对 `1e-7`）。默认请求零相对 gap，显式允许非零 gap 时不会
+把仅有可行现解称为已证最优。无可行现解时 `routes`、`objective` 为 `None`；发现输出自相矛盾时
+返回 `status=4` 和原因。`max_routes_per_depot` 显式覆盖实例的每仓车辆限制。
 
 **VRPTW（Solomon 约定）。** 一个场站、`n` 个顾客，每个顾客有需求 `q_i`、时间窗 `[e_i, l_i]`、服务时长 `s_i`；
 车辆容量 `Q`；早到可等待，服务开始不得晚于 `l_i`，须在场站关门前返回。距离为双精度欧氏距离、行驶时间 =
@@ -75,7 +114,7 @@ python scripts/smoke.py              # 小实例冒烟：可行性 + 启发式�
 | `vrptw/construct.py` | Solomon (1987) I1 顺序插入，试 6 组参数 × 2 种种子规则取最好，作为贪心基线。 |
 | `vrptw/routes.py` | 路线缓存最早/最晚服务开始时间、载重、累计能耗距离，插入可行性按位置 O(1) 判断并用 numpy 向量化；最长时长用“最晚出发 vs 最早出发 + 总等待”公式。 |
 | `vrptw/alns.py` | ALNS：破坏算子 random / worst / Shaw / route removal；修复算子 greedy / greedy+noise / regret-2 / regret-3 / 按随机或需求/距离/截止时间顺序逐个插入（Christiaens & Vanden Berghe 2020 的 recreate 思路）；轮盘赌自适应权重（得分 33/9/13，反应系数 0.1）；模拟退火接受。分层目标用两阶段：先反复删一条路线并在少一辆车的上限下搜索，失败后固定车辆数优化距离。修复只会插入通过可行性检查的位置，插不进的顾客留在未分配池中。 |
-| `vrptw/mip.py` | 2-index MIP（时间/载重 MTZ 型大 M 约束；载重相关能耗利用“弧上载重 = r_j”线性化；多场站用顾客-场站标签；最长时长用每条路线的出发时间变量），`scipy.optimize.milp`（HiGHS）求解，给出最优或时限下的界与 gap。 |
+| `vrptw/mip.py` | 2-index MIP（每客户消耗一单位连通流；时间/载重 MTZ 型大 M 约束；载重相关能耗利用“弧上载重 = r_j”线性化；多场站用顾客-场站标签；最长时长用每条路线的出发时间变量），`scipy.optimize.milp`（HiGHS）求解，独立校验现解后给出目标、界与 gap。 |
 | `vrptw/brute.py` | ≤ 6 个顾客时枚举所有划分 × 排列 × 场站，用 checker 评估，用来验证 MIP。 |
 | `vrptw/drone.py` | 能耗参数、实例生成器、航次串联。 |
 | `vrptw/sim.py` | 离散事件执行、风场、指标、配对 bootstrap；滚动重规划策略。 |
@@ -292,7 +331,7 @@ ALNS：2000 次迭代 × 种子 [1, 2, 3]（表中取平均）。无人机数来
 <!-- END:machine -->
 
 <!-- BEGIN:mutation -->
-变异测试：30/30 个故意植入的缺陷被测试抓到（详见 [MUTATION.md](MUTATION.md)）；未修改副本测试通过、等价变异存活（证明工具能报告“漏网”）。首轮漏网的变异、以及为它们补上的测试也记在 MUTATION.md 里。
+历史变异记录（`24d7d0f` 的旧框架）：30/30 个故意植入的缺陷被标记为检出（详见 [MUTATION.md](MUTATION.md)）；未修改副本测试通过、等价变异存活（证明工具能报告“漏网”）。首轮漏网的变异、以及为它们补上的测试也记在 MUTATION.md 里。
 <!-- END:mutation -->
 
 ## 这不是什么 / 局限

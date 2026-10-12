@@ -36,22 +36,40 @@ def _single_feasible(inst, d, u):
 
 
 def solomon_i1(inst, lam=1.0, alpha1=1.0, alpha2=0.0, seed_rule="far", max_routes=None):
+    """Build routes greedily, choosing a feasible depot with a free vehicle.
+
+    Depot selection is reconsidered before each new route. This is still a
+    sequential heuristic, not a globally optimal customer-to-depot assignment.
+    """
+    inst.validate()
     unrouted = set(inst.customers)
     depots = list(range(inst.n_depots))
-    rt = {u: min(depots, key=lambda d: _round_trip(inst, d, u)) for u in unrouted}
-    c0 = {u: _round_trip(inst, rt[u], u) for u in unrouted}
+    feasible_depots = {
+        u: sorted((d for d in depots if _single_feasible(inst, d, u)),
+                  key=lambda d: (_round_trip(inst, d, u), d))
+        for u in unrouted
+    }
+    # Keep the insertion reference cost even after all new-vehicle slots for a
+    # customer fill up: it may still fit into the route currently being built.
+    c0 = {u: _round_trip(inst, choices[0], u)
+          for u, choices in feasible_depots.items() if choices}
     routes = []
     unassigned = []
     per_depot = {d: 0 for d in depots}
     for u in list(unrouted):
-        if not _single_feasible(inst, rt[u], u):
+        if not feasible_depots[u]:
             unrouted.discard(u)
             unassigned.append(u)
     while unrouted:
         if max_routes is not None and len(routes) >= max_routes:
             break
-        cand = [u for u in unrouted
-                if inst.max_vehicles is None or per_depot[rt[u]] < inst.max_vehicles]
+        rt = {}
+        for u in unrouted:
+            for d in feasible_depots[u]:
+                if inst.max_vehicles is None or per_depot[d] < inst.max_vehicles:
+                    rt[u] = d
+                    break
+        cand = list(rt)
         if not cand:
             break
         if seed_rule == "far":

@@ -6,7 +6,9 @@ Every result that is reported is re-checked here.
 """
 from __future__ import annotations
 
+from collections.abc import Mapping, Set
 from dataclasses import dataclass, field
+from numbers import Integral
 
 EPS = 1e-6
 
@@ -23,8 +25,40 @@ class Evaluation:
     route_end: list = field(default_factory=list)
 
 
+def _route_nodes(inst, route):
+    """Validate/materialize one tour before any indexing; empty depot tours are neutral."""
+    if isinstance(route, (str, bytes, Mapping, Set)):
+        raise ValueError("expected an ordered iterable of node IDs")
+    try:
+        nodes = list(route)
+    except TypeError as exc:
+        raise ValueError("expected an ordered iterable of node IDs") from exc
+    for pos, node in enumerate(nodes):
+        if isinstance(node, bool) or not isinstance(node, Integral):
+            raise ValueError(f"node at position {pos} must be an integer ID, not {node!r}")
+        if not 0 <= node < inst.n_nodes:
+            raise ValueError(f"node {node} at position {pos} is outside 0..{inst.n_nodes - 1}")
+    nodes = [int(node) for node in nodes]
+    if not nodes:
+        return nodes
+    if nodes[0] >= inst.n_depots or nodes[-1] != nodes[0]:
+        raise ValueError("must start and end at the same depot")
+    if any(node < inst.n_depots for node in nodes[1:-1]):
+        raise ValueError("depot inside route")
+    if len(set(nodes[1:-1])) != len(nodes[1:-1]):
+        raise ValueError("repeated customer inside route")
+    return nodes
+
+
 def route_schedule(inst, route):
-    """Return (service start times, return time) following the route with waiting allowed."""
+    """Return service-start times (including depot return) with waiting allowed.
+
+    Invalid tours raise ValueError. [] has no schedule; [d] and [d, d] stay at
+    depot d's ready time and incur no travel/service. Helpers assume valid instance data.
+    """
+    route = _route_nodes(inst, route)
+    if len(route) < 3:
+        return [float(inst.ready[route[0]])] * len(route) if route else []
     t = float(inst.ready[route[0]])
     starts = [t]
     prev = route[0]
@@ -53,7 +87,11 @@ def min_duration(inst, route):
     Evaluated by simulation at every candidate departure where some node is
     reached exactly at its ready time or at its due time with no waiting before
     it (one of these is optimal), plus the earliest departure.
+    Empty depot tours have duration zero; invalid tours raise ValueError.
     """
+    route = _route_nodes(inst, route)
+    if len(route) < 3:
+        return 0.0
     d = route[0]
     e0 = float(inst.ready[d])
     cands = {e0}
@@ -73,8 +111,10 @@ def min_duration(inst, route):
 
 
 def route_energy(inst, route):
+    """Trip energy for a valid tour; no trip charge for []/[d]/[d, d]."""
+    route = _route_nodes(inst, route)
     em = inst.energy
-    if em is None:
+    if em is None or len(route) < 3:
         return 0.0
     payload = sum(float(inst.demand[c]) for c in route[1:-1])
     e = em.e_trip
@@ -86,21 +126,36 @@ def route_energy(inst, route):
 
 
 def evaluate(inst, routes, allow_unassigned: bool = False) -> Evaluation:
+    """Check route iterables once; malformed tours contribute no customer or cost data.
+
+    Instance data errors raise ValueError. Route input errors are reported as
+    violations. Structurally valid but infeasible tours retain their numeric cost.
+    """
+    inst.validate()
+    try:
+        if isinstance(routes, (str, bytes, Mapping)):
+            raise TypeError
+        route_iter = iter(routes)
+    except TypeError:
+        return Evaluation(False, 0, 0.0, 0.0, 0.0, ["routes must be an iterable of tours"])
     viol = []
     seen = {}
     dist = 0.0
     energy = 0.0
     per_depot = {}
     r_energy, r_end = [], []
-    for k, r in enumerate(routes):
+    n = 0
+    for k, raw in enumerate(route_iter):
+        try:
+            r = _route_nodes(inst, raw)
+        except ValueError as exc:
+            viol.append(f"route {k}: {exc}")
+            continue
         if len(r) < 3:
             viol.append(f"route {k}: has no customer")
             continue
         d0 = r[0]
-        if d0 >= inst.n_depots or r[-1] != d0:
-            viol.append(f"route {k}: must start and end at the same depot")
-        if any(v < inst.n_depots for v in r[1:-1]):
-            viol.append(f"route {k}: depot inside route")
+        n += 1
         per_depot[d0] = per_depot.get(d0, 0) + 1
         for c in r[1:-1]:
             if c in seen:
@@ -132,6 +187,5 @@ def evaluate(inst, routes, allow_unassigned: bool = False) -> Evaluation:
         for d0, cnt in per_depot.items():
             if cnt > inst.max_vehicles:
                 viol.append(f"depot {d0}: {cnt} routes > max {inst.max_vehicles}")
-    n = sum(1 for r in routes if len(r) >= 3)
     cost = inst.vehicle_cost * n + inst.w_dist * dist + inst.w_energy * energy
     return Evaluation(not viol, n, dist, energy, cost, viol, r_energy, r_end)

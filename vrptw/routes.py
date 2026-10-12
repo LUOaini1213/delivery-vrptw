@@ -120,14 +120,16 @@ def empty_route(inst, depot):
 
 
 def _lists(inst):
-    """Python-list copies of the instance data for fast scalar access (cached on the instance)."""
+    """Cache only immutable snapshots, and include every numeric dependency in the key."""
+    arrays = (inst.demand, inst.service, inst.ready, inst.due, inst.time, inst.dist, inst.energy_dist)
+    cacheable = all(not a.flags.writeable and a.flags.owndata for a in arrays)
     L = getattr(inst, "_lists_cache", None)
-    if L is None or L["id"] is not inst.time or L["idd"] is not inst.dist or L["ide"] is not inst.energy_dist:
-        L = {"id": inst.time, "idd": inst.dist, "ide": inst.energy_dist,
+    if not cacheable or L is None or any(a is not b for a, b in zip(arrays, L["arrays"])):
+        L = {"arrays": arrays,
              "q": inst.demand.tolist(), "s": inst.service.tolist(), "e": inst.ready.tolist(),
              "l": inst.due.tolist(), "t": inst.time.tolist(), "d": inst.dist.tolist(),
              "ed": inst.energy_dist.tolist()}
-        inst._lists_cache = L
+        inst._lists_cache = L if cacheable else None
     return L
 
 

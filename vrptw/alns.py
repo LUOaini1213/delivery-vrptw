@@ -30,6 +30,8 @@ from dataclasses import dataclass, field
 import numpy as np
 
 from .routes import INF, Route, Solution, UData, batch_insertion_costs, empty_route, insertion_costs, removal_savings
+from .checker import evaluate
+from .instance import _integer, _number
 
 DESTROY = ("random", "worst", "shaw", "route")
 REPAIR = ("greedy", "greedy_noise", "regret2", "regret3", "sequential")
@@ -378,19 +380,40 @@ def search(ctx, start: Solution, iters: int, rng, stats: OpStats, max_routes=Non
 def solve(inst, start: Solution, iters: int, seed: int, params: Params | None = None,
           hierarchical: bool = False, max_routes=None, time_limit: float | None = None):
     """ALNS entry point. Returns (solution, info dict)."""
+    inst.validate()
+    _integer(iters, "iters")
+    if max_routes is not None:
+        _integer(max_routes, "max_routes")
+    if time_limit is not None:
+        _number(time_limit, "time_limit", 0, positive=True)
+    initial_routes = start.as_lists()
+    checked = evaluate(inst, initial_routes, allow_unassigned=True)
+    if not checked.feasible:
+        raise ValueError("invalid starting solution: " + "; ".join(checked.violations))
+    if max_routes is not None and len(initial_routes) > max_routes:
+        raise ValueError("starting solution exceeds max_routes")
+    for node in start.unassigned:
+        _integer(node, "unassigned customer", inst.n_depots)
+        if node >= inst.n_nodes:
+            raise ValueError("unassigned customer exceeds node range")
+    served = {node for route in initial_routes for node in route[1:-1]}
+    if len(set(start.unassigned)) != len(start.unassigned) or set(start.unassigned) != set(inst.customers) - served:
+        raise ValueError("unassigned customers must exactly cover missing customers, without duplicates")
     params = params or Params()
     ctx = Context(inst, params)
     rng = np.random.default_rng(seed)
     stats = OpStats()
     t0 = time.perf_counter()
     deadline = t0 + time_limit if time_limit else None
-    sol = start.copy()
+    # A caller may have changed the instance since creating its Route caches.
+    sol = Solution([Route(inst, nodes) for nodes in initial_routes], start.unassigned)
     if sol.unassigned:
         repair(ctx, sol, rng, 2, False, max_routes)
     info = {"iters": iters, "seed": seed, "stage_a_iters": 0, "route_history": [sol.n_routes()]}
     used = 0
     if hierarchical:
-        lb = int(math.ceil(inst.demand.sum() / inst.capacity - 1e-9))
+        lb = (int(math.ceil(inst.demand.sum() / inst.capacity - 1e-9)) if inst.capacity > 0
+              else (1 if inst.n_customers else 0))
         budget_a = int(iters * params.route_min_frac)
         feas = sol if not sol.unassigned else None
         while feas is not None and used < budget_a and feas.n_routes() > lb:
