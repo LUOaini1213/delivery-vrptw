@@ -410,6 +410,28 @@ def block_machine(_):
     return "\n".join(seen)
 
 
+def block_gurobi(d):
+    lines = []
+    for n, v in d["summary"].items():
+        dis = "、".join(v["disagree"]) if v["disagree"] else "无"
+        lines.append(f"- n = {n}：{v['instances']} 个实例中 Gurobi 跑了 {v['gurobi_run']} 个"
+                     f"（{v['gurobi_skipped_size']} 个超出 pip 自带受限许可的 {d['size_limit']:,} 变量上限）；"
+                     f"HiGHS 证明最优 {v['highs_optimal']} 个，Gurobi 证明最优 {v['gurobi_optimal']} 个；"
+                     f"两者都证明最优的 {v['both_optimal']} 个里目标值一致 {v['objectives_agree']} 个，不一致：{dis}。")
+        rs = [r for r in d["runs"] if str(r["n"]) == n and "skipped" not in r["gurobi"]]
+        both = [r for r in rs if r["highs"]["optimal"] and r["gurobi"]["optimal"]]
+        if both:
+            ratio = float(np.median([r["highs"]["seconds"] / max(r["gurobi"]["seconds"], 1e-3) for r in both]))
+            lines.append(f"  - 两者都证明最优的实例上，HiGHS 与 Gurobi 求解时间之比的中位数为 {ratio:.1f}（并行 4 进程运行，计时仅供参考）。")
+        only_g = [r for r in rs if r["gurobi"]["optimal"] and not r["highs"]["optimal"]]
+        if only_g:
+            worse = sum(r["highs"]["objective"] is not None and r["highs"]["objective"] > r["gurobi"]["objective"] + 1e-6
+                        for r in only_g)
+            lines.append(f"  - 只有 Gurobi 在时限内证明最优的 {len(only_g)} 个实例里，HiGHS 时限内现解比最优差的有 {worse} 个；"
+                         f"HiGHS 现解从未优于 Gurobi 的已证最优值。")
+    return "\n".join(lines)
+
+
 BLOCKS = {
     "small": ("small_mip_vs_alns.json", block_small),
     "small_findings": ("small_mip_vs_alns.json", block_small_findings),
@@ -423,6 +445,7 @@ BLOCKS = {
     "sim_rolling": ("simulation.json", block_sim_rolling),
     "sim_findings": ("simulation.json", block_sim_findings),
     "mutation": ("mutation.json", block_mutation),
+    "gurobi": ("gurobi_crosscheck.json", block_gurobi),
     "tests": (None, block_tests),
     "en_findings": (None, block_en_findings),
     "machine": (None, block_machine),
