@@ -42,6 +42,7 @@ production dispatcher and not a state-of-the-art solver.
 
 ```bash
 pip install -r requirements.txt      # numpy, scipy(>=1.11, 自带 HiGHS), pytest
+pip install gurobipy                 # 可选：第二个求解器复核（pip 自带受限许可即可）
 python -m pytest -q                  # 单元测试 + README/结果一致性检查
 python scripts/smoke.py              # 小实例冒烟：可行性 + 启发式不优于已证明最优
 ```
@@ -66,7 +67,7 @@ python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifact
 秒数含多进程并行争用、随机器变化，仅供参考。
 
 <!-- BEGIN:tests -->
-`python -m pytest -q` 共 388 个测试。
+`python -m pytest -q` 共 393 个测试。
 <!-- END:tests -->
 
 ## 问题定义
@@ -152,6 +153,18 @@ MIP 时限是墙钟时间，跑这组实验时机器上同时还有别的实验�
 - n = 25：MIP 在时限内证明最优 34/56 个；其中 ALNS 至少一个种子命中最优 34/34，单次运行命中 159/170，最差的单次运行差 6.10%（RC206）。 未证明最优的 22 个（族：C1, C2, R1, R2, RC1, RC2）里，ALNS 严格好于 MIP 时限内现解的有 15 个；这些实例 MIP 剩余相对 gap 中位数 13.5%。
 - 注意：MIP 最优是“已证明”的数字，ALNS 的数字是启发式结果；上表把两者分开统计。
 <!-- END:small_findings -->
+
+### 1a′ 第二个求解器复核：HiGHS 与 Gurobi（同一模型）
+
+`solve_mip(..., solver="gurobi")` 把同一个矩阵模型交给 Gurobi（gurobipy 12+），现解走同一套独立路线审计。Gurobi 用的是 gurobipy pip 包自带的受限许可（2,000 变量 / 2,000 约束），所以只能跑规模在上限以内的实例；`python scripts/run_gurobi_check.py --n 10 25` 复现，结果在 `results/gurobi_crosscheck.json`。
+
+<!-- BEGIN:gurobi -->
+- n = 10：56 个实例中 Gurobi 跑了 56 个（0 个超出 pip 自带受限许可的 2,000 变量上限）；HiGHS 证明最优 56 个，Gurobi 证明最优 56 个；两者都证明最优的 56 个里目标值一致 56 个，不一致：无。
+  - 两者都证明最优的实例上，HiGHS 与 Gurobi 求解时间之比的中位数为 2.6（并行 4 进程运行，计时仅供参考）。
+- n = 25：56 个实例中 Gurobi 跑了 56 个（0 个超出 pip 自带受限许可的 2,000 变量上限）；HiGHS 证明最优 39 个，Gurobi 证明最优 51 个；两者都证明最优的 39 个里目标值一致 39 个，不一致：无。
+  - 两者都证明最优的实例上，HiGHS 与 Gurobi 求解时间之比的中位数为 4.6（并行 4 进程运行，计时仅供参考）。
+  - 只有 Gurobi 在时限内证明最优的 12 个实例里，HiGHS 时限内现解比最优差的有 8 个；HiGHS 现解从未优于 Gurobi 的已证最优值。
+<!-- END:gurobi -->
 
 ### 1b Solomon 100 顾客：与已发表最好解（BKS）对照（分层目标）
 

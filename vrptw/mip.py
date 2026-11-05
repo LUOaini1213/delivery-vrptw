@@ -1,6 +1,7 @@
 """Exact 2-index MIP for (multi-depot) VRPTW with payload-dependent battery energy.
 
-Solved with HiGHS through scipy.optimize.milp. Only meant for small instances
+Solved with HiGHS through scipy.optimize.milp (default) or, optionally, Gurobi through
+gurobipy (solver="gurobi"); both receive the identical matrix model. Only meant for small instances
 (up to ~25 customers); it gives provable optima (or a certified gap when the
 time limit is hit) against which the heuristics are measured.
 
@@ -62,7 +63,8 @@ class _Builder:
         return LinearConstraint(A, np.array(self.lo), np.array(self.hi))
 
 
-def solve_mip(inst, time_limit: float = 60.0, mip_rel_gap: float = 0.0, max_routes_per_depot=None, verbose=False):
+def solve_mip(inst, time_limit: float = 60.0, mip_rel_gap: float = 0.0, max_routes_per_depot=None, verbose=False,
+              solver: str = "highs"):
     """Return an independently audited incumbent, with a separate optimality flag.
 
     A positive requested gap can yield a valid incumbent without a proof of
@@ -70,6 +72,8 @@ def solve_mip(inst, time_limit: float = 60.0, mip_rel_gap: float = 0.0, max_rout
     max_routes_per_depot explicitly overrides the instance's per-depot limit.
     """
     inst.validate()
+    if solver not in ("highs", "gurobi"):
+        raise ValueError("solver must be 'highs' or 'gurobi'")
     for label, value in (("time_limit", time_limit), ("mip_rel_gap", mip_rel_gap)):
         if isinstance(value, bool) or not isinstance(value, Real) or not math.isfinite(value) or value < 0:
             raise ValueError(f"{label} must be a finite nonnegative number")
@@ -259,11 +263,14 @@ def solve_mip(inst, time_limit: float = 60.0, mip_rel_gap: float = 0.0, max_rout
 
     cons = B.constraint(nvar)
     t0 = time.perf_counter()
-    res = milp(c, constraints=[cons], integrality=integ, bounds=Bounds(lb, ub),
-               options={"time_limit": time_limit, "mip_rel_gap": mip_rel_gap, "disp": verbose})
+    if solver == "gurobi":
+        res = _solve_gurobi(c, cons, integ, lb, ub, time_limit, mip_rel_gap, verbose)
+    else:
+        res = milp(c, constraints=[cons], integrality=integ, bounds=Bounds(lb, ub),
+                   options={"time_limit": time_limit, "mip_rel_gap": mip_rel_gap, "disp": verbose})
     secs = time.perf_counter() - t0
     status = res.status if isinstance(res.status, Integral) and not isinstance(res.status, bool) else 4
-    out = {"status": int(status), "message": res.message, "seconds": secs, "n_arcs": nx,
+    out = {"status": int(status), "message": res.message, "seconds": secs, "solver": solver, "n_arcs": nx,
            "n_vars": nvar, "n_cons": len(B.lo)}
     if res.x is None:
         out.update(valid=False, optimal=False, objective=None,
@@ -289,6 +296,65 @@ def solve_mip(inst, time_limit: float = 60.0, mip_rel_gap: float = 0.0, max_rout
     out.update(valid=True, optimal=optimal, objective=cost, solver_objective=float(res.fun),
                bound=bound, gap=gap, routes=routes)
     return out
+
+
+def _solve_gurobi(c, cons, integrality, lower, upper, time_limit, mip_rel_gap, verbose):
+    """Solve the same matrix model with Gurobi; return a scipy-milp-like result.
+
+    Status codes follow scipy.optimize.milp: 0 optimal, 1 limit reached (incumbent may
+    exist), 2 infeasible, 3 unbounded, 4 other (including size-limited licences).
+    """
+    from types import SimpleNamespace
+
+    import gurobipy as gp
+    from gurobipy import GRB
+
+    empty = dict(x=None, fun=None, mip_dual_bound=None, mip_gap=None)
+    try:
+        env = gp.Env(empty=True)
+        env.setParam("OutputFlag", 1 if verbose else 0)
+        env.start()
+        m = gp.Model(env=env)
+        m.Params.TimeLimit = time_limit
+        m.Params.MIPGap = mip_rel_gap
+        vtype = np.where(np.asarray(integrality) != 0, GRB.BINARY, GRB.CONTINUOUS)
+        # integer variables in this model are all 0/1 arcs or depot assignments
+        x = m.addMVar(len(c), lb=lower, ub=upper, vtype=vtype)
+        m.setObjective(np.asarray(c) @ x, GRB.MINIMIZE)
+        A, lo, hi = cons.A.tocsr(), np.asarray(cons.lb, float), np.asarray(cons.ub, float)
+        eq = np.isfinite(lo) & np.isfinite(hi) & (lo == hi)
+        ge = np.isfinite(lo) & ~eq
+        le = np.isfinite(hi) & ~eq
+        if eq.any():
+            m.addMConstr(A[eq], x, "=", lo[eq])
+        if ge.any():
+            m.addMConstr(A[ge], x, ">", lo[ge])
+        if le.any():
+            m.addMConstr(A[le], x, "<", hi[le])
+        m.optimize()
+    except gp.GurobiError as exc:
+        return SimpleNamespace(status=4, message=f"gurobi error {exc.errno}: {exc}", **empty)
+    code = m.Status
+    has_sol = m.SolCount > 0
+    if code == GRB.OPTIMAL:
+        status = 0
+    elif code in (GRB.TIME_LIMIT, GRB.NODE_LIMIT, GRB.SOLUTION_LIMIT, GRB.INTERRUPTED):
+        status = 1
+    elif code == GRB.INFEASIBLE:
+        status = 2
+    elif code in (GRB.UNBOUNDED, GRB.INF_OR_UNBD):
+        status = 3
+    else:
+        status = 4
+    if not has_sol:
+        return SimpleNamespace(status=status, message=f"gurobi status {code}, no incumbent", **empty)
+    fun = float(m.ObjVal)
+    bound = float(m.ObjBound)
+    gap = float(m.MIPGap)
+    if status == 0 and abs(gap) <= 1e-9:
+        gap = 0.0  # proven optimal at a zero requested gap: report it the way HiGHS does
+    return SimpleNamespace(status=status, message=f"gurobi status {code}", x=np.asarray(x.X, float),
+                           fun=fun, mip_dual_bound=bound, mip_gap=gap)
 
 
 def _same_cost(left, right):

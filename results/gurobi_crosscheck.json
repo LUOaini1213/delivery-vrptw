@@ -1,0 +1,2170 @@
+{
+ "experiment": "gurobi_crosscheck",
+ "objective": "total distance",
+ "time_limit": {
+  "10": 60.0,
+  "25": 300.0
+ },
+ "size_limit": 2000,
+ "summary": {
+  "10": {
+   "instances": 56,
+   "gurobi_run": 56,
+   "gurobi_skipped_size": 0,
+   "highs_optimal": 56,
+   "gurobi_optimal": 56,
+   "both_optimal": 56,
+   "objectives_agree": 56,
+   "disagree": []
+  },
+  "25": {
+   "instances": 56,
+   "gurobi_run": 56,
+   "gurobi_skipped_size": 0,
+   "highs_optimal": 39,
+   "gurobi_optimal": 51,
+   "both_optimal": 39,
+   "objectives_agree": 39,
+   "disagree": []
+  }
+ },
+ "wall_seconds": 2394.7,
+ "machine": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel(R) Core(TM) i5-14500",
+  "logical_cpus": 20,
+  "python": "3.13.14",
+  "numpy": "2.5.0",
+  "scipy": "1.18.0"
+ },
+ "runs": [
+  {
+   "instance": "C101",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 140,
+   "n_cons": 142,
+   "highs": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.009
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.069,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C102",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 210,
+   "n_cons": 281,
+   "highs": {
+    "optimal": true,
+    "objective": 57.24996285655929,
+    "seconds": 0.038
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 57.24996285655929,
+    "seconds": 0.105,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C103",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 210,
+   "n_cons": 281,
+   "highs": {
+    "optimal": true,
+    "objective": 57.24996285655929,
+    "seconds": 0.034
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 57.24996285655929,
+    "seconds": 0.108,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C104",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 224,
+   "n_cons": 308,
+   "highs": {
+    "optimal": true,
+    "objective": 56.407466195335516,
+    "seconds": 0.253
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 56.407466195335516,
+    "seconds": 0.149,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C105",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 142,
+   "n_cons": 152,
+   "highs": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.01
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.008,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C106",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 140,
+   "n_cons": 147,
+   "highs": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.007
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.006,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C107",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 142,
+   "n_cons": 154,
+   "highs": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.01
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 58.32595327336471,
+    "seconds": 0.011,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C108",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 160,
+   "n_cons": 189,
+   "highs": {
+    "optimal": true,
+    "objective": 57.49752614861852,
+    "seconds": 0.032
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 57.49752614861852,
+    "seconds": 0.022,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C109",
+   "family": "C1",
+   "n": 10,
+   "n_vars": 176,
+   "n_cons": 217,
+   "highs": {
+    "optimal": true,
+    "objective": 57.49752614861852,
+    "seconds": 0.065
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 57.49752614861852,
+    "seconds": 0.029,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C201",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 140,
+   "n_cons": 142,
+   "highs": {
+    "optimal": true,
+    "objective": 152.28566441211922,
+    "seconds": 0.007
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 152.28566441211922,
+    "seconds": 0.007,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C202",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 210,
+   "n_cons": 280,
+   "highs": {
+    "optimal": true,
+    "objective": 144.98724348640485,
+    "seconds": 1.009
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 144.98724348640485,
+    "seconds": 0.228,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C203",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 210,
+   "n_cons": 280,
+   "highs": {
+    "optimal": true,
+    "objective": 144.98724348640485,
+    "seconds": 0.973
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 144.98724348640485,
+    "seconds": 0.236,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C204",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 224,
+   "n_cons": 308,
+   "highs": {
+    "optimal": true,
+    "objective": 133.13397544252499,
+    "seconds": 0.085
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 133.13397544252499,
+    "seconds": 0.045,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C205",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 154,
+   "n_cons": 167,
+   "highs": {
+    "optimal": true,
+    "objective": 152.08743757967162,
+    "seconds": 0.047
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 152.08743757967162,
+    "seconds": 0.017,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C206",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 162,
+   "n_cons": 179,
+   "highs": {
+    "optimal": true,
+    "objective": 152.08743757967162,
+    "seconds": 0.091
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 152.08743757967162,
+    "seconds": 0.02,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C207",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 156,
+   "n_cons": 171,
+   "highs": {
+    "optimal": true,
+    "objective": 152.08743757967162,
+    "seconds": 0.022
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 152.08743757967162,
+    "seconds": 0.017,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C208",
+   "family": "C2",
+   "n": 10,
+   "n_vars": 164,
+   "n_cons": 186,
+   "highs": {
+    "optimal": true,
+    "objective": 146.36958026332258,
+    "seconds": 0.108
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 146.36958026332258,
+    "seconds": 0.021,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R101",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 110,
+   "n_cons": 113,
+   "highs": {
+    "optimal": true,
+    "objective": 269.533140900765,
+    "seconds": 0.011
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 269.533140900765,
+    "seconds": 0.008,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R102",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 196,
+   "n_cons": 267,
+   "highs": {
+    "optimal": true,
+    "objective": 229.76853317906043,
+    "seconds": 0.87
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 229.76853317906043,
+    "seconds": 0.101,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R103",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 196,
+   "n_cons": 267,
+   "highs": {
+    "optimal": true,
+    "objective": 229.76853317906043,
+    "seconds": 0.92
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 229.76853317906043,
+    "seconds": 0.109,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R104",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 216,
+   "n_cons": 299,
+   "highs": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.969
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.373,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R105",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 126,
+   "n_cons": 148,
+   "highs": {
+    "optimal": true,
+    "objective": 253.07149730807546,
+    "seconds": 0.007
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 253.07149730807546,
+    "seconds": 0.008,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R106",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 204,
+   "n_cons": 279,
+   "highs": {
+    "optimal": true,
+    "objective": 220.00817343034822,
+    "seconds": 0.991
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 220.00817343034822,
+    "seconds": 0.216,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R107",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 204,
+   "n_cons": 279,
+   "highs": {
+    "optimal": true,
+    "objective": 220.00817343034822,
+    "seconds": 1.109
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 220.00817343034822,
+    "seconds": 0.171,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R108",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 220,
+   "n_cons": 305,
+   "highs": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.674
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.363,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R109",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 154,
+   "n_cons": 198,
+   "highs": {
+    "optimal": true,
+    "objective": 232.2949967603959,
+    "seconds": 0.068
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 232.2949967603959,
+    "seconds": 0.032,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R110",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 186,
+   "n_cons": 248,
+   "highs": {
+    "optimal": true,
+    "objective": 213.74654862637647,
+    "seconds": 0.157
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 213.74654862637647,
+    "seconds": 0.075,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R111",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 206,
+   "n_cons": 280,
+   "highs": {
+    "optimal": true,
+    "objective": 220.00817343034822,
+    "seconds": 1.509
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 220.00817343034822,
+    "seconds": 0.274,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R112",
+   "family": "R1",
+   "n": 10,
+   "n_vars": 230,
+   "n_cons": 314,
+   "highs": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 1.479
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.286,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R201",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 150,
+   "n_cons": 160,
+   "highs": {
+    "optimal": true,
+    "objective": 249.20118373056854,
+    "seconds": 0.018
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 249.20118373056854,
+    "seconds": 0.019,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R202",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 216,
+   "n_cons": 291,
+   "highs": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.895
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.127,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R203",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 216,
+   "n_cons": 291,
+   "highs": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.885
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.127,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R204",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 226,
+   "n_cons": 312,
+   "highs": {
+    "optimal": true,
+    "objective": 182.0458814136303,
+    "seconds": 0.196
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 182.0458814136303,
+    "seconds": 0.059,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R205",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 180,
+   "n_cons": 222,
+   "highs": {
+    "optimal": true,
+    "objective": 209.8145495192673,
+    "seconds": 0.057
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 209.8145495192673,
+    "seconds": 0.023,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R206",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 224,
+   "n_cons": 308,
+   "highs": {
+    "optimal": true,
+    "objective": 173.04201082117333,
+    "seconds": 0.085
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 173.04201082117333,
+    "seconds": 0.032,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R207",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 224,
+   "n_cons": 308,
+   "highs": {
+    "optimal": true,
+    "objective": 173.04201082117333,
+    "seconds": 0.082
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 173.04201082117333,
+    "seconds": 0.057,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R208",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 226,
+   "n_cons": 313,
+   "highs": {
+    "optimal": true,
+    "objective": 173.04201082117333,
+    "seconds": 0.058
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 173.04201082117333,
+    "seconds": 0.045,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R209",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 198,
+   "n_cons": 255,
+   "highs": {
+    "optimal": true,
+    "objective": 194.47293381059325,
+    "seconds": 0.229
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 194.47293381059325,
+    "seconds": 0.069,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R210",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 216,
+   "n_cons": 290,
+   "highs": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 1.138
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 198.21230541476098,
+    "seconds": 0.185,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R211",
+   "family": "R2",
+   "n": 10,
+   "n_vars": 230,
+   "n_cons": 314,
+   "highs": {
+    "optimal": true,
+    "objective": 183.0391419843744,
+    "seconds": 0.514
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 183.0391419843744,
+    "seconds": 0.122,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC101",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 138,
+   "n_cons": 161,
+   "highs": {
+    "optimal": true,
+    "objective": 185.90787650875717,
+    "seconds": 0.055
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 185.90787650875717,
+    "seconds": 0.025,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC102",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 208,
+   "n_cons": 283,
+   "highs": {
+    "optimal": true,
+    "objective": 169.68323125071748,
+    "seconds": 0.772
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 169.68323125071748,
+    "seconds": 0.134,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC103",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 208,
+   "n_cons": 283,
+   "highs": {
+    "optimal": true,
+    "objective": 169.68323125071748,
+    "seconds": 0.779
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 169.68323125071748,
+    "seconds": 0.161,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC104",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 222,
+   "n_cons": 307,
+   "highs": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 0.124
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 0.051,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC105",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 182,
+   "n_cons": 242,
+   "highs": {
+    "optimal": true,
+    "objective": 179.30555124171454,
+    "seconds": 1.127
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 179.30555124171454,
+    "seconds": 0.363,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC106",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 176,
+   "n_cons": 229,
+   "highs": {
+    "optimal": true,
+    "objective": 178.08794184831896,
+    "seconds": 0.382
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 178.08794184831896,
+    "seconds": 0.054,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC107",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 204,
+   "n_cons": 274,
+   "highs": {
+    "optimal": true,
+    "objective": 168.1672882440502,
+    "seconds": 0.132
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 168.16728824405018,
+    "seconds": 0.077,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC108",
+   "family": "RC1",
+   "n": 10,
+   "n_vars": 222,
+   "n_cons": 303,
+   "highs": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 0.149
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 0.067,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC201",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 158,
+   "n_cons": 176,
+   "highs": {
+    "optimal": true,
+    "objective": 183.13565688550477,
+    "seconds": 0.038
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 183.13565688550477,
+    "seconds": 0.023,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC202",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 216,
+   "n_cons": 293,
+   "highs": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 13.647
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 1.596,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC203",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 216,
+   "n_cons": 293,
+   "highs": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 13.659
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 166.0485053949989,
+    "seconds": 1.627,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC204",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 226,
+   "n_cons": 312,
+   "highs": {
+    "optimal": true,
+    "objective": 137.7768098368935,
+    "seconds": 0.226
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 137.7768098368935,
+    "seconds": 0.084,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC205",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 204,
+   "n_cons": 267,
+   "highs": {
+    "optimal": true,
+    "objective": 168.1672882440502,
+    "seconds": 2.017
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 168.1672882440502,
+    "seconds": 0.382,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC206",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 186,
+   "n_cons": 232,
+   "highs": {
+    "optimal": true,
+    "objective": 178.08794184831896,
+    "seconds": 0.758
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 178.08794184831893,
+    "seconds": 0.138,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC207",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 202,
+   "n_cons": 262,
+   "highs": {
+    "optimal": true,
+    "objective": 168.16728824405018,
+    "seconds": 1.66
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 168.1672882440502,
+    "seconds": 0.24,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC208",
+   "family": "RC2",
+   "n": 10,
+   "n_vars": 230,
+   "n_cons": 315,
+   "highs": {
+    "optimal": true,
+    "objective": 137.7768098368935,
+    "seconds": 0.183
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 137.7768098368935,
+    "seconds": 0.114,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C101",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 689,
+   "n_cons": 738,
+   "highs": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.041
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.034,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C102",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 973,
+   "n_cons": 1280,
+   "highs": {
+    "optimal": true,
+    "objective": 190.7376293618508,
+    "seconds": 2.567
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 190.7376293618508,
+    "seconds": 0.252,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C103",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 1163,
+   "n_cons": 1627,
+   "highs": {
+    "optimal": true,
+    "objective": 190.7376293618508,
+    "seconds": 15.764
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 190.7376293618508,
+    "seconds": 1.828,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C104",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 1233,
+   "n_cons": 1762,
+   "highs": {
+    "optimal": true,
+    "objective": 187.44945538505974,
+    "seconds": 127.631
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 187.44945538505974,
+    "seconds": 2.346,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C105",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 739,
+   "n_cons": 844,
+   "highs": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.055
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.055,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C106",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 697,
+   "n_cons": 758,
+   "highs": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.051
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.042,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C107",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 779,
+   "n_cons": 924,
+   "highs": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.044
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.053,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C108",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 887,
+   "n_cons": 1121,
+   "highs": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 1.363
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 0.518,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C109",
+   "family": "C1",
+   "n": 25,
+   "n_vars": 989,
+   "n_cons": 1321,
+   "highs": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 22.345
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 191.8136197786562,
+    "seconds": 2.4,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C201",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 731,
+   "n_cons": 756,
+   "highs": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 0.033
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 0.054,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C202",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 1021,
+   "n_cons": 1325,
+   "highs": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 6.632
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 1.431,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C203",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 1193,
+   "n_cons": 1665,
+   "highs": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 29.889
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 3.482,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C204",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 1269,
+   "n_cons": 1815,
+   "highs": {
+    "optimal": true,
+    "objective": 213.9300683271624,
+    "seconds": 198.993
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 213.9300683271624,
+    "seconds": 10.352,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C205",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 807,
+   "n_cons": 903,
+   "highs": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 0.382
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 0.145,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C206",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 855,
+   "n_cons": 993,
+   "highs": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 1.37
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.54256527689378,
+    "seconds": 0.326,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C207",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 951,
+   "n_cons": 1182,
+   "highs": {
+    "optimal": true,
+    "objective": 215.33603794055247,
+    "seconds": 4.651
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.33603794055247,
+    "seconds": 0.648,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "C208",
+   "family": "C2",
+   "n": 25,
+   "n_vars": 901,
+   "n_cons": 1087,
+   "highs": {
+    "optimal": true,
+    "objective": 215.37351717173908,
+    "seconds": 2.554
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 215.37351717173908,
+    "seconds": 0.509,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R101",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 473,
+   "n_cons": 504,
+   "highs": {
+    "optimal": true,
+    "objective": 618.3299155462687,
+    "seconds": 0.034
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 618.3299155462685,
+    "seconds": 0.024,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R102",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 849,
+   "n_cons": 1141,
+   "highs": {
+    "optimal": true,
+    "objective": 548.1078177906318,
+    "seconds": 21.681
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 548.1078177906318,
+    "seconds": 2.135,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R103",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1071,
+   "n_cons": 1512,
+   "highs": {
+    "optimal": false,
+    "objective": 467.4975326146756,
+    "seconds": 300.027
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 455.6982422498318,
+    "seconds": 32.898,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R104",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1181,
+   "n_cons": 1693,
+   "highs": {
+    "optimal": false,
+    "objective": 436.42483520630077,
+    "seconds": 300.095
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 417.96122851907154,
+    "seconds": 66.867,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R105",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 623,
+   "n_cons": 783,
+   "highs": {
+    "optimal": true,
+    "objective": 531.5386420627178,
+    "seconds": 0.469
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 531.5386420627178,
+    "seconds": 0.206,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R106",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 947,
+   "n_cons": 1317,
+   "highs": {
+    "optimal": true,
+    "objective": 466.4802121580666,
+    "seconds": 57.796
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 466.4802121580666,
+    "seconds": 3.022,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R107",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1123,
+   "n_cons": 1599,
+   "highs": {
+    "optimal": false,
+    "objective": 425.26852495439283,
+    "seconds": 300.028
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 425.26852495439283,
+    "seconds": 23.374,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R108",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1219,
+   "n_cons": 1754,
+   "highs": {
+    "optimal": false,
+    "objective": 422.2462864213328,
+    "seconds": 300.024
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 398.2947072443331,
+    "seconds": 51.739,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R109",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 843,
+   "n_cons": 1170,
+   "highs": {
+    "optimal": true,
+    "objective": 442.6252015649225,
+    "seconds": 5.704
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 442.6252015649225,
+    "seconds": 1.677,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R110",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1077,
+   "n_cons": 1535,
+   "highs": {
+    "optimal": false,
+    "objective": 468.14811145250724,
+    "seconds": 300.025
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 445.1767671145248,
+    "seconds": 131.768,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R111",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1075,
+   "n_cons": 1528,
+   "highs": {
+    "optimal": true,
+    "objective": 429.6967514130168,
+    "seconds": 230.102
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 429.6967514130168,
+    "seconds": 9.28,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R112",
+   "family": "R1",
+   "n": 25,
+   "n_vars": 1317,
+   "n_cons": 1899,
+   "highs": {
+    "optimal": false,
+    "objective": 428.76711494679444,
+    "seconds": 300.115
+   },
+   "gurobi": {
+    "optimal": false,
+    "objective": 394.1013161095329,
+    "seconds": 303.453,
+    "valid": true,
+    "message": "gurobi status 9"
+   }
+  },
+  {
+   "instance": "R201",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 819,
+   "n_cons": 945,
+   "highs": {
+    "optimal": true,
+    "objective": 464.37469267840396,
+    "seconds": 0.149
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 464.37469267840396,
+    "seconds": 0.137,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R202",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1061,
+   "n_cons": 1411,
+   "highs": {
+    "optimal": true,
+    "objective": 411.48739056926087,
+    "seconds": 56.902
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 411.48739056926087,
+    "seconds": 3.394,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R203",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1217,
+   "n_cons": 1704,
+   "highs": {
+    "optimal": false,
+    "objective": 404.7238402987561,
+    "seconds": 300.051
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 392.3251862242265,
+    "seconds": 177.658,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R204",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1279,
+   "n_cons": 1830,
+   "highs": {
+    "optimal": false,
+    "objective": 360.08172820816003,
+    "seconds": 300.216
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 355.89157585991677,
+    "seconds": 168.922,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R205",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1001,
+   "n_cons": 1291,
+   "highs": {
+    "optimal": true,
+    "objective": 394.06201738477876,
+    "seconds": 6.551
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 394.06201738477876,
+    "seconds": 2.639,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R206",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1155,
+   "n_cons": 1590,
+   "highs": {
+    "optimal": false,
+    "objective": 375.9728140424104,
+    "seconds": 300.125
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 375.4834315569335,
+    "seconds": 27.227,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R207",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1243,
+   "n_cons": 1764,
+   "highs": {
+    "optimal": false,
+    "objective": 362.6345957985765,
+    "seconds": 300.053
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 362.6345957985765,
+    "seconds": 51.972,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R208",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1287,
+   "n_cons": 1849,
+   "highs": {
+    "optimal": true,
+    "objective": 329.3335010548145,
+    "seconds": 141.571
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 329.3335010548145,
+    "seconds": 3.308,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R209",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1115,
+   "n_cons": 1535,
+   "highs": {
+    "optimal": true,
+    "objective": 371.56186621153233,
+    "seconds": 62.602
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 371.56186621153233,
+    "seconds": 2.689,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R210",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1145,
+   "n_cons": 1573,
+   "highs": {
+    "optimal": true,
+    "objective": 405.4783538900481,
+    "seconds": 194.13
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 405.4783538900481,
+    "seconds": 5.624,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "R211",
+   "family": "R2",
+   "n": 25,
+   "n_vars": 1319,
+   "n_cons": 1899,
+   "highs": {
+    "optimal": false,
+    "objective": 359.3427696140842,
+    "seconds": 300.035
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 351.9107611687528,
+    "seconds": 75.249,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC101",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 577,
+   "n_cons": 722,
+   "highs": {
+    "optimal": true,
+    "objective": 462.1559467583739,
+    "seconds": 2.598
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 462.1559467583739,
+    "seconds": 0.681,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC102",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 903,
+   "n_cons": 1244,
+   "highs": {
+    "optimal": true,
+    "objective": 352.74426976053843,
+    "seconds": 3.871
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 352.74426976053843,
+    "seconds": 1.172,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC103",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 1113,
+   "n_cons": 1583,
+   "highs": {
+    "optimal": true,
+    "objective": 333.9186364366017,
+    "seconds": 110.895
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 333.9186364366017,
+    "seconds": 6.422,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC104",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 1205,
+   "n_cons": 1732,
+   "highs": {
+    "optimal": true,
+    "objective": 307.1390025908645,
+    "seconds": 5.12
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 307.1390025908645,
+    "seconds": 1.253,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC105",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 765,
+   "n_cons": 1040,
+   "highs": {
+    "optimal": false,
+    "objective": 412.37658789465416,
+    "seconds": 300.02
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 412.37658789465416,
+    "seconds": 16.536,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC106",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 799,
+   "n_cons": 1102,
+   "highs": {
+    "optimal": true,
+    "objective": 346.5054460682915,
+    "seconds": 22.967
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 346.5054460682915,
+    "seconds": 3.897,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC107",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 1051,
+   "n_cons": 1496,
+   "highs": {
+    "optimal": true,
+    "objective": 298.94984154867427,
+    "seconds": 2.055
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 298.94984154867427,
+    "seconds": 0.665,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC108",
+   "family": "RC1",
+   "n": 25,
+   "n_vars": 1257,
+   "n_cons": 1811,
+   "highs": {
+    "optimal": true,
+    "objective": 294.99443951784644,
+    "seconds": 4.309
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 294.99443951784644,
+    "seconds": 0.949,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC201",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 827,
+   "n_cons": 980,
+   "highs": {
+    "optimal": true,
+    "objective": 361.2410263927873,
+    "seconds": 0.385
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 361.2410263927873,
+    "seconds": 0.237,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC202",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 1069,
+   "n_cons": 1434,
+   "highs": {
+    "optimal": false,
+    "objective": 338.8238920041662,
+    "seconds": 300.022
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 338.8238920041662,
+    "seconds": 56.152,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC203",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 1217,
+   "n_cons": 1711,
+   "highs": {
+    "optimal": false,
+    "objective": 331.2013744595451,
+    "seconds": 300.023
+   },
+   "gurobi": {
+    "optimal": false,
+    "objective": 327.69324739905153,
+    "seconds": 300.847,
+    "valid": true,
+    "message": "gurobi status 9"
+   }
+  },
+  {
+   "instance": "RC204",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 1279,
+   "n_cons": 1832,
+   "highs": {
+    "optimal": false,
+    "objective": 300.98464194710596,
+    "seconds": 300.024
+   },
+   "gurobi": {
+    "optimal": false,
+    "objective": 300.2345554348666,
+    "seconds": 300.216,
+    "valid": true,
+    "message": "gurobi status 9"
+   }
+  },
+  {
+   "instance": "RC205",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 991,
+   "n_cons": 1288,
+   "highs": {
+    "optimal": true,
+    "objective": 338.92940106418035,
+    "seconds": 11.127
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 338.92940106418035,
+    "seconds": 1.889,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC206",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 1009,
+   "n_cons": 1320,
+   "highs": {
+    "optimal": true,
+    "objective": 325.10442960972205,
+    "seconds": 27.686
+   },
+   "gurobi": {
+    "optimal": true,
+    "objective": 325.10442960972205,
+    "seconds": 3.774,
+    "valid": true,
+    "message": "gurobi status 2"
+   }
+  },
+  {
+   "instance": "RC207",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 1147,
+   "n_cons": 1601,
+   "highs": {
+    "optimal": false,
+    "objective": 305.18981377433016,
+    "seconds": 300.107
+   },
+   "gurobi": {
+    "optimal": false,
+    "objective": 298.94984154867427,
+    "seconds": 300.967,
+    "valid": true,
+    "message": "gurobi status 9"
+   }
+  },
+  {
+   "instance": "RC208",
+   "family": "RC2",
+   "n": 25,
+   "n_vars": 1325,
+   "n_cons": 1909,
+   "highs": {
+    "optimal": false,
+    "objective": 275.7115694829455,
+    "seconds": 300.07
+   },
+   "gurobi": {
+    "optimal": false,
+    "objective": 269.56581931466394,
+    "seconds": 300.342,
+    "valid": true,
+    "message": "gurobi status 9"
+   }
+  }
+ ]
+}
