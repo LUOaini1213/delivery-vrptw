@@ -5,3 +5,4 @@ __pycache__/
 prof.out
 artifacts/
 results/mutation-runs/
+.venv*/
