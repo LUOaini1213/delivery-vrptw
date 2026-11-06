@@ -1,0 +1,8 @@
+# Exact numpy/scipy versions recorded in results/*.json (machine field); Python 3.11.
+# Used by CI to replay stored results (scripts/replay_check.py) under the original versions.
+# The full test suite needs requirements.txt: with this scipy, HiGHS presolve wrongly reports
+# tests/test_mip_brute.py::test_mip_equals_brute_force_energy[3] infeasible.
+# pytest is only the test runner and is not recorded in results/*.json.
+numpy==1.24.3
+scipy==1.11.1
+pytest==8.3.5

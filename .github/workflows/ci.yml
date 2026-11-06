@@ -30,6 +30,27 @@ jobs:
         with:
           name: vrptw-${{ matrix.python }}
           path: artifacts/
+  replay:
+    # Rerun a fixed subset of the stored experiments with the current code; values must match exactly.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        deps: [requirements.txt, requirements-lock.txt]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r ${{ matrix.deps }}
+      - name: replay stored results with current code
+        run: python scripts/replay_check.py --check --output artifacts/replay.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vrptw-replay-${{ matrix.deps }}
+          path: artifacts/
   mutations:
     runs-on: ubuntu-latest
     timeout-minutes: 35
