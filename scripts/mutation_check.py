@@ -131,7 +131,7 @@ HISTORY = ("First run on 2026-09-27: 28/30 killed. Survivors: M21 (inverted regr
            "lateness). Added `test_regret_repair_beats_greedy_on_constructed_case` and "
            "`test_lateness_is_measured_exactly`, then re-ran everything; the table below is that re-run.")
 
-COPY = ["vrptw", "tests", "scripts", "data", "results", "README.md", "MUTATION.md",
+COPY = ["vrptw", "tests", "scripts", "data", "results", "README.md", "MUTATION.md", "requirements-lock.txt",
         "pyproject.toml", "pytest.ini", "setup.cfg", "conftest.py"]
 BASELINE = ("BASE", "", "", "", "unmodified copy - must PASS")
 
