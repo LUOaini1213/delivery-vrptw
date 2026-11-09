@@ -4,6 +4,7 @@ VRPTW and delivery-drone routing in Python: exact MIP (HiGHS) vs ALNS, the Solom
 带时间窗与电量约束的末端配送路径规划：精确 MIP 与 ALNS 对照、Solomon 基准对标、无人机能耗变体、随机仿真下的策略评估。
 
 **Built.** An independent feasibility checker (it reproduces all 56 published Solomon best-known solutions), Solomon's I1 heuristic, an ALNS, a 2-index MIP checked against brute force, and a seeded discrete-event simulator with paired bootstrap CIs.
+
 **Found.**
 
 <!-- BEGIN:en_findings -->
