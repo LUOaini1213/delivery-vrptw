@@ -1,25 +1,68 @@
-# delivery-vrptw：带时间窗与电量约束的末端配送路径规划
+# delivery-vrptw
 
-精确 MIP 与 ALNS 对照、Solomon 基准对标、无人机能耗变体、随机仿真下的策略评估。
+VRPTW and delivery-drone routing in Python: exact MIP (HiGHS) vs ALNS, the Solomon benchmark, and a stochastic simulation of dispatch policies.
+带时间窗与电量约束的末端配送路径规划：精确 MIP 与 ALNS 对照、Solomon 基准对标、无人机能耗变体、随机仿真下的策略评估。
 
-> 个人开源项目，2026 年 9 月新建；与任何过往实习或课程无关，与美团或任何公司无关联。
-> 所有数字都由 `scripts/` 下的脚本跑出、写进 `results/*.json`，README 里的表格由
-> `scripts/check_readme.py` 从这些 JSON 生成（CI 里 `--check` 不一致就失败）。
+**Built.** An independent feasibility checker (it reproduces all 56 published Solomon best-known solutions), Solomon's I1 heuristic, an ALNS, a 2-index MIP checked against brute force, and a seeded discrete-event simulator with paired bootstrap CIs.
 
-### 当前代码与历史实验
+**Found.**
 
-下方大规模结果表及根目录 `MUTATION.md` 保留自 `24d7d0f`，没有因本次代码修复而重写。
-它们描述当时的实验，不代表新版已重跑全部 112 个小实例、56 个大实例和 1000 个仿真场景。
-新版的复核入口是 `scripts/review_check.py`：12 组小问题逐一对照穷举，再检查六类 Solomon
-各一个 10 客户实例，独立复算可行性及目标。输出带时间、依赖版本、源码和数据清单摘要；
-完整测试另行复核已存储的大实例路径。CI 保存当前提交的报告、测试 XML 和变异证据。
+<!-- BEGIN:en_findings -->
+- Small Solomon subsets (first 10/25 customers, distance objective): HiGHS proved 90/112 optima; ALNS matched 88/90 of them with at least one of 5 seeds.
+- 56 Solomon 100-customer instances, 10000 ALNS iterations x 3 seeds: 413 vehicles in total vs 405 for the best-known solutions; on the 48 instances with the BKS fleet size the best run is 1.97% longer on average.
+- Drone variant (60 orders, 2 depots): ALNS changes planned energy by -4.9% on average vs Solomon I1 (fleet size is not in its objective).
+- Simulation (1000 paired scenarios): on-time rate 90.4% (I1 plan), 91.1% (ALNS plan), 95.6% / 97.9% (ALNS with 15% / 30% buffers). Hourly rolling re-planning vs the 30% buffer: +0.4 pp on-time (95% CI -0.1 to +0.9), i.e. no clear gain.
+<!-- END:en_findings -->
 
-本轮修复了三类会影响结论的问题：非法节点编号被 Python 负索引接纳；零需求且同址客户
-形成不连接仓库的子环；搜索缓存沿用修改前的需求或时间数据。多仓 I1 也会检查其他可用仓库，
-不再因最便宜仓库不可用而直接丢弃客户。MIP 增加与货量无关的连通流，并在返回结果前独立
-检查每个客户、路线闭合、物理约束和目标值；测试错误与真正检测到缺陷在变异报告中分开处理。
+**Limits.** A portfolio/learning project, not a production dispatcher and not a state-of-the-art solver; the drone instances and energy parameters are synthetic and not calibrated to any real aircraft; the MIP proves optima only on small instances.
 
-**English summary.** A from-scratch Python study of the vehicle routing problem with time windows (VRPTW)
+<!-- BEGIN:replay -->
+**Evidence.** The tables are generated from `results/*.json`, produced at commit `24d7d0f`; the code has been fixed since (see the revision notes near the end). `python scripts/replay_check.py --check`, run in CI on every push under both the latest and the locked dependency versions, reruns a fixed subset of the stored runs with the current code and requires every stored route to be identical and every compared value to match at stored precision: the MIP optimum, I1 and ALNS seed 1 (1000 iterations) on the first 10 customers of C101, C201, R101, R201, RC101, RC201; Solomon R101, C201 (seed 1, 10000 ALNS iterations each); the I1 baseline of all 5 drone instances; drone instance 1's ALNS plan and its 4 simulation plans; 200 static scenarios x 4 policies (9 metrics each); 4 rolling re-planning scenarios. The remaining stored runs are not replayed (a full rerun takes hours).
+<!-- END:replay -->
+
+> Personal open-source project (Sept 2026); synthetic drone data, public Solomon benchmarks. 个人开源项目（2026 年 9 月）。
+> README 里的数字都由 `scripts/check_readme.py` 从 `results/*.json` 生成（CI 里 `--check` 不一致就失败）。
+
+## Verify in three commands / 三条命令验证
+
+```bash
+pip install -r requirements.txt          # Python 3.11 or 3.12; numpy, scipy (>=1.17, ships HiGHS), pytest
+python -m pytest -q                      # unit tests + README/results consistency (about 1.5 min)
+python scripts/replay_check.py --check   # rerun a fixed subset of the stored runs, require an exact match (a few minutes)
+```
+
+`requirements-lock.txt` pins numpy and scipy to the versions recorded in `results/*.json` (Python 3.11
+only: that numpy has no 3.12 wheel); CI runs the replay under both it and the latest
+versions. The full test suite needs `requirements.txt` (scipy >= 1.17): with scipy 1.11.1 and 1.16.3 HiGHS
+presolve wrongly reports one feasible energy-objective test MIP infeasible.
+
+<!-- BEGIN:tests -->
+`python -m pytest -q` 共 392 个测试。
+<!-- END:tests -->
+
+更多检查（不覆盖存储结果）：
+
+```bash
+python scripts/smoke.py              # 小实例冒烟：可行性 + 启发式不优于已证明最优
+python scripts/fetch_data.py --verify
+python scripts/review_check.py --output artifacts/review.json
+python scripts/mutation_check.py --self-test
+python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifacts/mutations
+```
+
+复核输出路径已存在时会拒绝覆盖；再次运行请换一个新路径。变异运行使用独立临时副本，
+先要求原版和仅改注释的对照全部通过，再逐项植入缺陷。只有 pytest 的实际测试失败才算检出；
+收集或环境错误、跳过、超时、缺报告和仍通过的变异都会使命令失败。旧框架的
+`results/history/mutation-24d7d0f.json` 只作历史记录，当前验收看新运行目录中的报告。
+
+完整重跑（本地，数小时）：`python scripts/run_small.py`、`python scripts/run_solomon.py`、
+`python scripts/run_drone.py`、`python scripts/run_sim.py`、`python scripts/mutation_check.py`，
+然后 `python scripts/check_readme.py --write`。预算都以**迭代次数**给定，同一环境下同一种子的结果可复现（测试里有确定性检查）；
+秒数含多进程并行争用、随机器变化，仅供参考。新跑出的结果在 `machine` 字段里记录提交号。
+
+## Overview (English)
+
+A from-scratch Python study of the vehicle routing problem with time windows (VRPTW)
 and a delivery-drone variant (payload, payload-dependent battery energy with a reserve, time windows,
 maximum trip duration, battery swaps at one or two depots). It contains an independent feasibility
 checker (it reproduces all 56 published Solomon best-known solutions), Solomon's I1 insertion
@@ -31,45 +74,7 @@ noise and energy uncertainty, and static, buffered and rolling-replanning polici
 paired scenarios and bootstrap confidence intervals. It is a portfolio/learning project, not a
 production dispatcher and not a state-of-the-art solver.
 
-<!-- BEGIN:en_findings -->
-- Small Solomon subsets (first 10/25 customers, distance objective): HiGHS proved 90/112 optima; ALNS matched 88/90 of them with at least one of 5 seeds.
-- 56 Solomon 100-customer instances, 10000 ALNS iterations x 3 seeds: 413 vehicles in total vs 405 for the best-known solutions; on the 48 instances with the BKS fleet size the best run is 1.97% longer on average.
-- Drone variant (60 orders, 2 depots): ALNS changes planned energy by -4.9% on average vs Solomon I1 (fleet size is not in its objective).
-- Simulation (1000 paired scenarios): on-time rate 90.4% (I1 plan), 91.1% (ALNS plan), 95.6% / 97.9% (ALNS with 15% / 30% buffers). Hourly rolling re-planning vs the 30% buffer: +0.4 pp on-time (95% CI -0.1 to +0.9), i.e. no clear gain.
-<!-- END:en_findings -->
-
-## 三条命令复现
-
-```bash
-pip install -r requirements.txt      # numpy, scipy(>=1.11, 自带 HiGHS), pytest
-python -m pytest -q                  # 单元测试 + README/结果一致性检查
-python scripts/smoke.py              # 小实例冒烟：可行性 + 启发式不优于已证明最优
-```
-
-本次改进的单独复核（不覆盖历史结果）：
-
-```bash
-python scripts/fetch_data.py --verify
-python scripts/review_check.py --output artifacts/review.json
-python scripts/mutation_check.py --self-test
-python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifacts/mutations
-```
-
-复核输出路径已存在时会拒绝覆盖；再次运行请换一个新路径。变异运行使用独立临时副本，
-先要求原版和仅改注释的对照全部通过，再逐项植入缺陷。只有 pytest 的实际测试失败才算检出；
-收集或环境错误、跳过、超时、缺报告和仍通过的变异都会使命令失败。旧 `results/mutation.json`
-的数字保留用于历史记录，当前验收看新运行目录中的报告。
-
-完整重跑（本地，数小时）：`python scripts/run_small.py`、`python scripts/run_solomon.py`、
-`python scripts/run_drone.py`、`python scripts/run_sim.py`、`python scripts/mutation_check.py`，
-然后 `python scripts/check_readme.py --write`。预算都以**迭代次数**给定，同一环境下同一种子的结果可复现（测试里有确定性检查）；
-秒数含多进程并行争用、随机器变化，仅供参考。
-
-<!-- BEGIN:tests -->
-`python -m pytest -q` 共 388 个测试。
-<!-- END:tests -->
-
-## 问题定义
+## 问题定义 / Problem
 
 **输入与返回值。** 数据必须是形状一致的有限实数，距离、耗时、需求、服务时间及成本权重非负；
 仓库需求为零。零需求、同位置客户、零容量、零车辆和空客户集都有定义，不依靠排除这些情况来保证连通。
@@ -106,7 +111,7 @@ python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifact
 飞行时间与能耗都乘以 `v_空/v_地`；每段航线再乘 LogNormal(0, 0.05) 噪声；投递时长乘 LogNormal(0, 0.3)。
 所有策略共用同一组场景（共同随机数），逐场景做配对比较。
 
-## 方法
+## 方法 / Method
 
 | 模块 | 内容 |
 |---|---|
@@ -119,7 +124,7 @@ python scripts/mutation_check.py --workers 2 --timeout 180 --output-dir artifact
 | `vrptw/drone.py` | 能耗参数、实例生成器、航次串联。 |
 | `vrptw/sim.py` | 离散事件执行、风场、指标、配对 bootstrap；滚动重规划策略。 |
 
-## 结果
+## 结果 / Results
 
 ### 1a 小实例：ALNS 与 MIP 已证明最优对照（Solomon 前 n 个顾客，目标 = 总距离）
 
@@ -244,7 +249,7 @@ BKS 来自 SINTEF TOP 的 Solomon 100 顾客表（2026-09-27 抓取，含每个�
 - 结论：在每次 10000 次迭代的预算下，聚类型（C）实例能稳定回到 BKS；随机/混合型（R/RC）实例离文献最好解还有百分之几的距离差和个别车辆差，这不是 state-of-the-art 的求解器。
 <!-- END:solomon_findings -->
 
-### 2 无人机变体
+### 2 无人机变体 / Drone variant
 
 小实例（MIP 可证明最优）：
 
@@ -277,7 +282,7 @@ ALNS：2000 次迭代 × 种子 [1, 2, 3]（表中取平均）。无人机数来
 - 60 单实例：ALNS 相对 I1 的能耗变化在 -7.3% 到 -1.8% 之间（15 次运行）。串联后的无人机数变化在 -1 到 +2 架之间——ALNS 只优化能耗，机队规模不在目标里，所以省电的计划不一定少用无人机。
 <!-- END:drone_findings -->
 
-### 3 随机仿真：策略对比（配对场景）
+### 3 随机仿真：策略对比（配对场景） / Simulation
 
 策略：(a) I1 计划静态执行；(b) ALNS 计划（按无风标称值规划）静态执行；(c) ALNS 在行驶时间和能耗都放大 15%/30%
 的实例上规划（留缓冲），放大后单独都飞不了的顾客单独成航次；(d) 每 60 分钟用当时观测到的风速按“最不利航向”
@@ -313,14 +318,16 @@ ALNS：2000 次迭代 × 种子 [1, 2, 3]（表中取平均）。无人机数来
   准时率差异的 95% CI 跨过 0：在这个仿真设定里，每小时按观测风速重规划并没有比一开始就留 30% 缓冲更准时；它的差别主要在资源侧（上面的无人机、航次、能耗）。
 <!-- END:sim_findings -->
 
-## 工程与验证
+## 工程与验证 / Engineering and verification
 
 - `pytest`：checker 手算用例与 56 个 BKS 复算；插入 O(1) 判断与 checker 逐位置一致（随机实例 + Solomon 子集）；
   时间窗前推/后推手算；能耗模型与 D'Andrea 公式逐项核对；MIP 与穷举在 ≤ 6 顾客的随机实例（含能耗、多场站、车辆上限、
   最长时长）上最优值一致；ALNS 每一对破坏/修复算子后都可行、小实例找到穷举最优、同种子结果一致；仿真在零不确定性下
   与 checker 的能耗逐航次一致、同种子可复现；航次串联是合法时间表；README 表格与 results JSON 一致，
   提交的路线全部重新校验。
-- CI（GitHub Actions，ubuntu）：数据哈希校验 → `pytest` → README 检查 → 冒烟运行。重型实验只在本地跑，JSON 已提交。
+- CI（GitHub Actions，ubuntu）：数据哈希校验 → `pytest` → README 检查 → 冒烟运行 → 当前代码复核（`review_check.py`）；
+  另有存储结果回放（`replay_check.py --check`，最新依赖与 `requirements-lock.txt` 各跑一次）和变异作业。
+  完整实验只在本地跑，JSON 已提交。
 - 运行环境（取自各 results 文件）：
 
 <!-- BEGIN:machine -->
@@ -331,10 +338,10 @@ ALNS：2000 次迭代 × 种子 [1, 2, 3]（表中取平均）。无人机数来
 <!-- END:machine -->
 
 <!-- BEGIN:mutation -->
-历史变异记录（`24d7d0f` 的旧框架）：30/30 个故意植入的缺陷被标记为检出（详见 [MUTATION.md](MUTATION.md)）；未修改副本测试通过、等价变异存活（证明工具能报告“漏网”）。首轮漏网的变异、以及为它们补上的测试也记在 MUTATION.md 里。
+当前变异框架（`scripts/mutation_check.py`）有 40 个故意植入的缺陷；CI 的 `mutations` 作业每次 push 都在新副本里逐个运行，只有实际测试失败才算检出，任何一个漏网或出错都让作业失败，报告保存为 Actions 产物。历史记录（`24d7d0f` 的旧框架）：30/30 被检出，见 [docs/history/MUTATION-24d7d0f.md](docs/history/MUTATION-24d7d0f.md)，不代表当前代码。
 <!-- END:mutation -->
 
-## 这不是什么 / 局限
+## 这不是什么 / 局限 (Limits)
 
 - 不是生产级调度系统：没有实时订单流接入、没有空域/航线/起降点容量约束、没有多无人机冲突避让。
 - 不是最先进的求解器：纯 Python + numpy，每秒迭代数有限；在给定预算内与 BKS 仍有差距（见 1b），没有做
@@ -347,7 +354,21 @@ ALNS：2000 次迭代 × 种子 [1, 2, 3]（表中取平均）。无人机数来
 - 仿真中计划一旦起飞就不改航；滚动策略只在整点重规划，风速预报用“当前观测 + 最不利航向”，没有真实预报模型。
 - 迟到订单（订单在白天陆续到达）没有建模。
 
-## 数据与引用
+## 修订记录 / Revision notes (2026-10)
+
+结果表与 `results/*.json` 生成于 `24d7d0f`；之后的代码修复没有整体重跑全部 112 个小实例、56 个大实例和
+1000 个仿真场景（数小时）。CI 用当前代码回放其中固定的一部分，要求路线完全相同、数值按存储精度逐值一致
+（范围见开头 Evidence 段，`scripts/replay_check.py`）。
+新版的另一个复核入口是 `scripts/review_check.py`：12 组小问题逐一对照穷举，再检查六类 Solomon
+各一个 10 客户实例，独立复算可行性及目标。输出带时间、依赖版本、源码和数据清单摘要；
+完整测试另行复核已存储的大实例路径。CI 保存当前提交的报告、测试 XML 和变异证据。
+
+本轮修复了三类会影响结论的问题：非法节点编号被 Python 负索引接纳；零需求且同址客户
+形成不连接仓库的子环；搜索缓存沿用修改前的需求或时间数据。多仓 I1 也会检查其他可用仓库，
+不再因最便宜仓库不可用而直接丢弃客户。MIP 增加与货量无关的连通流，并在返回结果前独立
+检查每个客户、路线闭合、物理约束和目标值；测试错误与真正检测到缺陷在变异报告中分开处理。
+
+## 数据与引用 / Data and references
 
 - Solomon, M. M. (1987). Algorithms for the vehicle routing and scheduling problems with time window constraints.
   *Operations Research* 35(2), 254–265.（实例与 I1 启发式）
@@ -362,14 +383,15 @@ ALNS：2000 次迭代 × 种子 [1, 2, 3]（表中取平均）。无人机数来
   arXiv:2206.01609, 式 (1) 的转述。
 - HiGHS（经 SciPy `milp` 调用）。
 
-## 目录
+## 目录 / Layout
 
 ```
 vrptw/      instance / checker / routes / construct / alns / mip / brute / drone / sim
-scripts/    fetch_data, run_small, run_solomon, run_drone, run_sim, mutation_check, check_readme, smoke
+scripts/    fetch_data, run_small, run_solomon, run_drone, run_sim, mutation_check, check_readme, replay_check, smoke, review_check
 tests/      pytest 测试
 results/    实验输出 JSON（README 表格的唯一来源）
 data/       Solomon 实例、SINTEF BKS 表与详细解、MANIFEST.json
+docs/       history/：旧框架的变异记录（历史）
 ```
 
 MIT License.

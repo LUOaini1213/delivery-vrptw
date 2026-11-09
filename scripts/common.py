@@ -30,7 +30,20 @@ def machine_info() -> dict:
     except Exception:
         pass
     return {"os": platform.platform(), "cpu": cpu, "logical_cpus": os.cpu_count(),
-            "python": platform.python_version(), "numpy": numpy.__version__, "scipy": scipy.__version__}
+            "python": platform.python_version(), "numpy": numpy.__version__, "scipy": scipy.__version__,
+            **git_info()}
+
+
+def git_info() -> dict:
+    """Commit the results were produced from; `git_dirty` means uncommitted tracked changes existed."""
+    try:
+        sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True,
+                             timeout=30, check=True).stdout.strip()
+        dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT,
+                               capture_output=True, text=True, timeout=30, check=True).stdout.strip()
+        return {"git_commit": sha, "git_dirty": bool(dirty)}
+    except (OSError, subprocess.SubprocessError):
+        return {"git_commit": None, "git_dirty": None}
 
 
 def write_json(path, obj) -> None:

@@ -1,3 +1,6 @@
+# Python 3.11 or 3.12 (CI runs both).
 numpy>=1.23
-scipy>=1.11
+# scipy >= 1.17: with scipy 1.11.1 and 1.16.3 (both tested) HiGHS presolve wrongly reports one feasible
+# test MIP infeasible (tests/test_mip_brute.py::test_mip_equals_brute_force_energy[3]); 1.17.1 finds the optimum.
+scipy>=1.17
 pytest>=7

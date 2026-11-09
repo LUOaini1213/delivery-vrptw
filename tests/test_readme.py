@@ -42,3 +42,16 @@ def test_committed_drone_routes_are_feasible():
         ev = evaluate(inst, r["routes"])
         assert ev.feasible, ev.violations[:2]
         assert round(ev.energy, 3) == pytest.approx(r["alns"]["energy_wh"], abs=1e-3)
+
+
+def test_lock_file_pins_the_versions_recorded_in_results():
+    """requirements-lock.txt must name exactly the numpy/scipy versions every results file records."""
+    pins = {}
+    for line in (ROOT / "requirements-lock.txt").read_text(encoding="ascii").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if line:
+            name, version = line.split("==")
+            pins[name.strip().lower()] = version.strip()
+    for name in ["small_mip_vs_alns.json", "solomon100.json", "drone.json", "simulation.json"]:
+        m = json.loads((RES / name).read_text(encoding="utf-8"))["machine"]
+        assert (m["numpy"], m["scipy"]) == (pins["numpy"], pins["scipy"]), name

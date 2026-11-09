@@ -381,9 +381,33 @@ def block_en_findings(_):
 # ----------------------------------------------------------------------------- misc
 
 def block_mutation(d):
-    return (f"历史变异记录（`24d7d0f` 的旧框架）：{d['killed']}/{d['total']} 个故意植入的缺陷被标记为检出（详见 [MUTATION.md](MUTATION.md)）；"
-            f"未修改副本测试通过、等价变异存活（证明工具能报告“漏网”）。"
-            + ("首轮漏网的变异、以及为它们补上的测试也记在 MUTATION.md 里。" if d.get("history") else ""))
+    from mutation_check import MUTANTS
+    return (f"当前变异框架（`scripts/mutation_check.py`）有 {len(MUTANTS)} 个故意植入的缺陷；CI 的 `mutations` 作业每次 push "
+            "都在新副本里逐个运行，只有实际测试失败才算检出，任何一个漏网或出错都让作业失败，报告保存为 Actions 产物。"
+            f"历史记录（`24d7d0f` 的旧框架）：{d['killed']}/{d['total']} 被检出，"
+            "见 [docs/history/MUTATION-24d7d0f.md](docs/history/MUTATION-24d7d0f.md)，不代表当前代码。")
+
+
+def block_replay(d):
+    import replay_check as rc
+    from run_sim import METRICS
+    from run_small import ALNS_ITERS
+    sol = ", ".join(f"{n}" for n, _ in rc.SOLOMON_RUNS)
+    seeds = sorted({s for _, s in rc.SOLOMON_RUNS})
+    roll = len(rc.SIM_ROLLING_SCENARIOS)
+    return (f"**Evidence.** The tables are generated from `results/*.json`, produced at commit `24d7d0f`; the code has "
+            "been fixed since (see the revision notes near the end). `python scripts/replay_check.py --check`, run in CI "
+            "on every push under both the latest and the locked dependency versions, reruns a fixed subset of the stored "
+            "runs with the current code and requires every stored route to be identical and every compared value to match at "
+            "stored precision: "
+            f"the MIP optimum, I1 and ALNS seed {rc.SMALL_ALNS_SEED} ({ALNS_ITERS[rc.SMALL_N]} iterations) on the first "
+            f"{rc.SMALL_N} customers of {', '.join(rc.SMALL_INSTANCES)}; "
+            f"Solomon {sol} (seed {', '.join(map(str, seeds))}, {d['iters']} ALNS iterations each); the I1 baseline of all "
+            f"{len(rc.DRONE_I1_SEEDS)} drone instances; drone instance {rc.SIM_INSTANCE}'s ALNS plan and its "
+            f"{len(rc.STATIC_POLICIES)} simulation plans; {len(rc.SIM_STATIC_SCENARIOS)} static scenarios x "
+            f"{len(rc.STATIC_POLICIES)} policies ({len(METRICS)} metrics each); {roll} rolling "
+            f"re-planning scenario{'s' if roll != 1 else ''}. The remaining stored runs are not replayed "
+            "(a full rerun takes hours).")
 
 
 def count_tests():
@@ -406,7 +430,9 @@ def block_machine(_):
         if d:
             m = d["machine"]
             seen.append(f"- `{name}`：{m['cpu']}，{m['logical_cpus']} 逻辑核，{m['os']}，Python {m['python']}，"
-                        f"numpy {m['numpy']}，scipy {m['scipy']}（HiGHS 经 `scipy.optimize.milp`）")
+                        f"numpy {m['numpy']}，scipy {m['scipy']}（HiGHS 经 `scipy.optimize.milp`）"
+                        + (f"，提交 `{m['git_commit'][:7]}`{'（有未提交改动）' if m.get('git_dirty') else ''}"
+                           if m.get("git_commit") else ""))
     return "\n".join(seen)
 
 
@@ -422,7 +448,8 @@ BLOCKS = {
     "sim_static": ("simulation.json", block_sim_static),
     "sim_rolling": ("simulation.json", block_sim_rolling),
     "sim_findings": ("simulation.json", block_sim_findings),
-    "mutation": ("mutation.json", block_mutation),
+    "mutation": ("history/mutation-24d7d0f.json", block_mutation),
+    "replay": ("solomon100.json", block_replay),
     "tests": (None, block_tests),
     "en_findings": (None, block_en_findings),
     "machine": (None, block_machine),
